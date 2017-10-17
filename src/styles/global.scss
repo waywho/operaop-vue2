@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,700');
+@import './font-awesome.scss';
+@import './node_modules/flexboxgrid-sass/flexboxgrid.scss';
+
+$color-lightgray: #d4d4d4 !default;
+$color-darkgray: #706d6c !default;
+// States
+$color-error: #f03c69 !default;
+$color-success: #35beb1 !default;
+$color-warning: #f7ba45 !default;
+$color-focus: #1c86f2 !default;
+
+$color-text: $color-darkgray !default;
+
+// Font Size
+$font-size: 16px !default;
+$font-size-smaller: $font-size - 4px !default;
+$font-size-small: $font-size - 2px !default;
+$font-size-big: $font-size + 2px !default;
+$font-size-large: $font-size + 4px !default;
+$input-font-size: 15px !default;
+$input-font-size-smaller: $input-font-size - 4px !default;
+$input-font-size-small: $input-font-size - 2px !default;
+$input-font-size-big: $input-font-size + 2px !default;
+$input-font-size-large: $input-font-size + 4px !default;
+
+// Baseline
+$base-line: 24px !default;
+$base-line-smaller: 20px !default;
+$base-line-small: 20px !default;
+$base-line-big: 28px !default;
+$base-line-large: 32px !default;
+$textarea-base-line: 16px !default;
+
+// Height
+$input-height: 40px !default;
+$input-height-small: 36px !default;
+$input-height-big: 48px !default;
+$input-height-large: 56px !default;
+
+// Padding
+$input-padding-rl: 12px !default;
+$input-padding-small-rl: 12px !default;
+$input-padding-big-rl: 12px !default;
+$input-padding-large-rl: 12px !default;
+$input-textarea-padding-tb: 8px !default;
+
+// States
+$input-border-width: 1px !default;
+$input-border-color: $color-lightgray !default;
+$input-background-color: #fff !default;
+$input-box-shadow: none !default;
+
+$input-focus-background-color: #fff !default;
+$input-focus-border-color: $color-focus !default;
+$input-focus-box-shadow: 0 0 1px $color-focus inset !default;
+
+$input-error-background-color: $color-error !default;
+$input-error-border-color: $color-error !default;
+$input-error-focus-box-shadow: 0 0 1px $color-error inset !default;
+
+$input-success-background-color: $color-success !default;
+$input-success-border-color: $color-success !default;
+$input-success-focus-box-shadow: 0 0 1px $color-success inset !default;
+
+$input-disabled-opacity: .6;
+$input-disabled-color: rgba(0, 0, 0, .5);
+
+// Radius
+$input-border-radius: 15px !default;
+@import './forms';
+
+body {
+  margin: 0;
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  line-height: 28px;
+}
+
+img {
+	width: 100%;
+	display: block;
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+}
+
+.is-darkgray {
+	color: $color-darkgray;
+}
+
+.is-lightgray {
+	color: $color-lightgray;
+}
+
+.is-golden {
+	color: #998c55;
+}
+
+.avatar {
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  border: solid 3px #998c55;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+
+button,
+.button {
+	color: white;
+	background-color: #998c55;
+	border-radius: 5px;
+	min-height: 30px;
+	min-width: 70px;
+	padding: 5px;
+	font-weight: normal;
+	text-decoration: none;
+	cursor: pointer;
+	display: inline-block;
+	line-height: 24px;
+	border: 1px solid transparent;
+	vertical-align: middle;
+	-webkit-appearance: none;
+	& i {
+        position: relative;
+        top: 1px;
+        margin: 0 2px;
+	}
+}
