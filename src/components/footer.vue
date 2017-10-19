@@ -1,8 +1,10 @@
 <template>
   <div id="footer">
   	<div class="row">
-	  	<div class="footer-logo col-sm-2">
-	  		<img src='../assets/images/operaop-logo-gray.png' alt="operaop logo" />
+  		<div class="col-sm-2">
+		  	<div class="footer-logo">
+		  		<img src='../assets/images/operaop-logo-gray.png' alt="operaop logo" />
+		  	</div>
 	  	</div>
  		<div class="col-sm-2">
 	    	<b>memberships</b>

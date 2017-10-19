@@ -10,22 +10,18 @@
 						<svg height="100%" width="100%">
 							<circle cx="142" cy="142" r="134" transform="rotate(268 142 142)" />
 							<image y="0" x="0" width="100%" height="100%" xlink:href="../assets/images/myopera-logo.png" />
-	  						
-
 						</svg>
 						
 					</div>
 					<i class="fa fa-ellipsis-h fa-2x is-darkgray company-options"></i>
 				</div>
-
-
-
+				<div class="xs-visible sm-hide company-options-xs"><i class="fa fa-ellipsis-h fa-3x is-darkgray opions-icon-xs"></i></div>
 			</div>
 
 			<div class="company-banner-text">
 				<h1>{{ company.name }}</h1>
-				<p><span>{{ company.city }}, {{ company.province }} </span><span class="is-golden">{{ company.connectionStrength }}% {{ company.connectionLevel | to-uppercase }}</span></p>
-				<p>{{ company.type }} Opera Company based in {{ company.country }} | Member of {{ company.membership }}</p>
+				<p><span>{{ company.city }}, {{ company.province }} </span><br class="xs-break" /><span class="is-golden">{{ company.connectionStrength }}% {{ company.connectionLevel | to-uppercase }}</span></p>
+				<p>{{ company.type }} Opera Company based in {{ company.country }} |<br class="xs-break" /> Member of {{ company.membership }}</p>
 			</div>
 		</div>
 
@@ -89,7 +85,7 @@
 		</div>
 
 		<div class="tool-section row between-sm">
-			<div class="tool-panel col-sm-8">
+			<div class="tool-panel col-xs-12 col-sm-8">
 				<h2>Schedule</h2>
 				<div class="selection">
 					<span class="selection-text">Production</span>
@@ -100,14 +96,14 @@
 					<vue-event-calendar :events="company.events"></vue-event-calendar>
 				</div>
 			</div>
-			<div class="toolbox col-sm-4">
-				<div class="row">
-					<div class="toolbox-tile col-sm-5 bottom-space "><i class="fa fa-comments-o fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-					<div class="toolbox-tile col-sm-5 bottom-space "><i class="fa fa-bar-chart fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-					<div class="toolbox-tile col-sm-5 bottom-space "><i class="fa fa-calendar fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-					<div class="toolbox-tile col-sm-5 bottom-space "><i class="fa fa-cogs fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-					<div class="toolbox-tile col-sm-5"><i class="fa fa-bell-o fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-					<div class="toolbox-tile col-sm-5"><i class="fa fa-database fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
+			<div class="toolbox col-xs-12 col-sm-4">
+				<div class="row around-xs">
+					<div class="toolbox-tile col-xs-5 col-sm-5 bottom-space "><i class="fa fa-comments-o fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
+					<div class="toolbox-tile col-xs-5 col-sm-5 bottom-space "><i class="fa fa-bar-chart fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
+					<div class="toolbox-tile col-xs-5 col-sm-5 bottom-space "><i class="fa fa-calendar fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
+					<div class="toolbox-tile col-xs-5 col-sm-5 bottom-space "><i class="fa fa-cogs fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
+					<div class="toolbox-tile col-xs-5 col-sm-5"><i class="fa fa-bell-o fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
+					<div class="toolbox-tile col-xs-5 col-sm-5"><i class="fa fa-database fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
 				</div>		
 			</div>
 		</div>
@@ -115,28 +111,28 @@
 		<div class="comment-section">
 			<div class="comment-box col-sm-offset-3 col-sm-9">
 				<div class="row">
-					<div class="col-sm-2">
+					<div class="col-xs-2">
 						<div class="row">
 				          <div class="avatar">
 				            <img src="../assets/images/myopera-logo.png" />
 				          </div>
 				      </div>
 					</div>
-					<div class="col-sm-10">
+					<div class="col-xs-9">
 						<textarea ></textarea>
 						<div class="row between-sm">
-							<div class="col-sm-8">
+							<div class="col-sm-8 col-xs-8">
 								<i class="fa fa-picture-o" aria-hidden="true"></i>
 								<i class="fa fa-map-marker" aria-hidden="true"></i>
 							</div>
-							<div class="col-sm-4 end-sm">
+							<div class="col-sm-4 end-sm col-xs-4 end-xs">
 								<button>POST</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div id="comment-masonry" class="col-sm-offset-3 col-sm-9">
+			<div id="comment-masonry" class="col-xs-12 col-sm-offset-3 col-sm-9">
 				<div class="comment-tile">
 					<div class="comment-header">
 						<div class="comment-header-status">
@@ -170,7 +166,7 @@ export default {
 				name: "MY OPERA",
 				city: "Toronto",
 				province: "Ontario",
-				connectionStrength: 98,
+				connectionStrength: 75,
 				connectionLevel: "connected allstar",
 				type: "Regional",
 				country: "Canada",
@@ -333,7 +329,7 @@ circle {
   stroke: #998c55;
   stroke-width: 15;
   stroke-dasharray: 841.946;
-  stroke-dashoffset: 16.839;
+  stroke-dashoffset: 210.487;
   animation: dash 4s linear reverse;
 }
 
@@ -347,7 +343,7 @@ circle {
 	display: block;
 	margin-bottom: 24px;
 	background-color: white;
-	height: 780px;
+	height: 100%;
 }
 
 .company-banner-assets {
@@ -406,6 +402,7 @@ circle {
 
 .company-banner-text {
 	text-align: center;
+	margin-bottom: 55px;
 }
 
 .company-section {
@@ -413,6 +410,15 @@ circle {
 	padding: 50px 48px 28px 100px;
 	margin-bottom: 24px;
 }
+
+.xs-break {
+	display: none;
+}
+
+.sm-hide {
+	display: none;
+}
+
 
 .avatar-frame {
 	height: 98px;
@@ -454,7 +460,7 @@ circle {
 }
 
 .selection {
-	margin-bottom: 83px;
+	margin-bottom: 5px;
 }
 
 .selection-text {
@@ -515,7 +521,7 @@ circle {
 
 .tool-panel {
 	background-color: white;
-	padding: 50px 48px 28px 100px;
+	padding: 50px 20px 50px 100px;
 }
 
 .toolbox {
@@ -551,7 +557,7 @@ circle {
 
 .comment-box textarea {
 	height: 79px;
-	width: 575px;
+	max-width: 95%;
 	margin-bottom: 36px;
 }
 
@@ -602,5 +608,36 @@ circle {
 .icon-count {
 	margin-right: 35px;
 }
+
+@media screen and (max-width: 46rem) {
+	.company-section {
+		padding: 50px 28px 28px 28px;
+	}
+
+	.xs-break {
+		display: inline;
+	}
+
+	.xs-visible {
+		display: inline;
+	}
+
+	.company-options-xs {
+		margin: 125px;
+		display: block;
+		text-align: center;
+	}
+	.tool-panel {
+		padding: 50px 20px 50px 20px;
+		order: 2;
+	}
+
+	.toolbox {
+		margin-top: 20px;
+		order: 1;
+	}
+
+}
+
 
 </style>
