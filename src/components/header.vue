@@ -47,15 +47,6 @@ export default {
   list-style-type: none;
 }
 
-@media screen and (max-width: 46rem) {
-  #header {
-    padding: 50px 28px 28px 28px;
-  }
-  #search-element {
-    display: none;
-  }
-}
-
 .logo {
   height: 57px;
   display: inline-block;
@@ -73,4 +64,14 @@ export default {
 .box {
   margin: 0 auto;
 }
+
+@media screen and (max-width: 46rem) {
+  #header {
+    padding: 50px 28px 28px 28px;
+  }
+  #search-element {
+    display: none;
+  }
+}
+
 </style>

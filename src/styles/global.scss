@@ -70,12 +70,16 @@ $input-disabled-color: rgba(0, 0, 0, .5);
 $input-border-radius: 15px !default;
 @import './forms';
 
-body {
-  margin: 0;
-  font-family: 'Raleway', Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  background-color: #f9f9f9;
-  line-height: 28px;
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+  	margin: 0;
+  	font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  	font-size: 16px;
+  	background-color: #f9f9f9;
+  	line-height: 28px;
+  	overflow-x: hidden;
 }
 
 img {
@@ -83,6 +87,10 @@ img {
 	display: block;
 	-webkit-transform: translateZ(0);
 	transform: translateZ(0);
+}
+
+div {
+	box-sizing: border-box;
 }
 
 .is-darkgray {

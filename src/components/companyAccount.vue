@@ -24,16 +24,39 @@
 				<p>{{ company.type }} Opera Company based in {{ company.country }} |<br class="xs-break" /> Member of {{ company.membership }}</p>
 			</div>
 		</div>
+		<div class="tool-section row between-sm">
+			<div class="tool-panel col-sm-8  col-xs-12">
+				<h2>Schedule</h2>
+				<div class="selection">
+					<span class="selection-text">Production</span>
+					<span class="selection-text">Rehearsal</span>
+					<span class="selection-text">Audition</span>
+				</div>
+				<div class="calendar">
+					<vue-event-calendar :events="company.events"></vue-event-calendar>
+				</div>
+			</div>
+			<div class="toolbox col-sm-4 col-xs-12">
+				<div class="row around-xs around-sm toolbox-inner">
+					<div class="toolbox-tile col-xs-5 col-sm-5 bottom-space "><i class="fa fa-comments-o fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
+					<div class="toolbox-tile col-xs-5 col-sm-5 bottom-space "><i class="fa fa-bar-chart fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
+					<div class="toolbox-tile col-xs-5 col-sm-5 bottom-space "><i class="fa fa-calendar fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
+					<div class="toolbox-tile col-xs-5 col-sm-5 bottom-space "><i class="fa fa-cogs fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
+					<div class="toolbox-tile col-xs-5 col-sm-5"><i class="fa fa-bell-o fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
+					<div class="toolbox-tile col-xs-5 col-sm-5"><i class="fa fa-database fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
+				</div>		
+			</div>
+		</div>
 
 		<div class="company-section row">
-			<div class="connections-title col-sm-4">
+			<div class="connections-title col-sm-4 col-xs-12">
 				<h2>Connections</h2>
 				<p>Company Staff</p>
 				<p>120 Connections</p>
 			</div>
-			<div class="col-sm-8">
-				<div class="row">
-					<div v-for="connection in connections" class="connection-tile col-sm">
+			<div class="col-sm-8 col-xs-12">
+				<div class="row slide">
+					<div v-for="connection in connections" class="connection-tile col-sm col-xs">
 						<div class="avatar-frame">
 							<img v-bind:src="connection.img" />
 						</div>
@@ -58,9 +81,8 @@
 				<span class="selection-text">Bass</span>
 			</div>
 			<div class="tile-container">
-				<div class="tile-section">
-					<div class="row">
-						<div v-for="auditionee in auditionees" class="auditionee-tile">
+					<div class="row slide">
+						<div v-for="auditionee in auditionees" class="auditionee-tile col-sm-3">
 							<div class="avatar-frame-large">
 									<img v-bind:src="auditionee.img" />
 							</div>
@@ -79,32 +101,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="more-auditions"><i class="fa fa-chevron-right fa-2x is-darkgray"></i></div>
-			</div>
-		</div>
-
-		<div class="tool-section row between-sm">
-			<div class="tool-panel col-xs-12 col-sm-8">
-				<h2>Schedule</h2>
-				<div class="selection">
-					<span class="selection-text">Production</span>
-					<span class="selection-text">Rehearsal</span>
-					<span class="selection-text">Audition</span>
-				</div>
-				<div class="calendar">
-					<vue-event-calendar :events="company.events"></vue-event-calendar>
-				</div>
-			</div>
-			<div class="toolbox col-xs-12 col-sm-4">
-				<div class="row around-xs">
-					<div class="toolbox-tile col-xs-5 col-sm-5 bottom-space "><i class="fa fa-comments-o fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-					<div class="toolbox-tile col-xs-5 col-sm-5 bottom-space "><i class="fa fa-bar-chart fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-					<div class="toolbox-tile col-xs-5 col-sm-5 bottom-space "><i class="fa fa-calendar fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-					<div class="toolbox-tile col-xs-5 col-sm-5 bottom-space "><i class="fa fa-cogs fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-					<div class="toolbox-tile col-xs-5 col-sm-5"><i class="fa fa-bell-o fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-					<div class="toolbox-tile col-xs-5 col-sm-5"><i class="fa fa-database fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-				</div>		
+				<div class="more-auditions xs-hide"><i class="fa fa-chevron-right fa-2x is-darkgray"></i></div>
 			</div>
 		</div>
 
@@ -121,7 +118,7 @@
 					<div class="col-xs-9">
 						<textarea ></textarea>
 						<div class="row between-sm">
-							<div class="col-sm-8 col-xs-8">
+							<div class="col-sm-8">
 								<i class="fa fa-picture-o" aria-hidden="true"></i>
 								<i class="fa fa-map-marker" aria-hidden="true"></i>
 							</div>
@@ -347,9 +344,11 @@ circle {
 }
 
 .company-banner-assets {
+	box-sizing: border-box;
 	display: block;
 	height: 573px;
 	margin-bottom: 47px;
+	position: relative;
 }
 
 .company-cover {
@@ -366,7 +365,7 @@ circle {
 .logo-wrap {
 	height: 283px;
 	position: absolute;
-	top: 350px;
+	top: 45%;
 	width: 100%;
 }
 
@@ -408,7 +407,7 @@ circle {
 .company-section {
 	background-color: white;
 	padding: 50px 48px 28px 100px;
-	margin-bottom: 24px;
+	margin: 0px 0px 24px 0px;
 }
 
 .xs-break {
@@ -418,7 +417,6 @@ circle {
 .sm-hide {
 	display: none;
 }
-
 
 .avatar-frame {
 	height: 98px;
@@ -454,6 +452,7 @@ circle {
 }
 
 .more-auditions {
+	width: 5%;
 	display: inline-flex;
 	align-items: flex-end;
 	justify-content: center;
@@ -476,13 +475,12 @@ circle {
 	display: flex;
 }
 
-.tile-section {
+/*.tile-section {
 	display: inline-flex;
 	width: 90%;
-}
+}*/
 
 .auditionee-tile {
-	width: 195px !important;
 	background-color: #e5e1df;
 	margin: 12px 12px;
 	flex-basis: 20%;
@@ -521,7 +519,7 @@ circle {
 
 .tool-panel {
 	background-color: white;
-	padding: 50px 20px 50px 100px;
+	padding: 50px 20px 30px 100px;
 }
 
 .toolbox {
@@ -535,7 +533,6 @@ circle {
 	align-items: center;
 	justify-content: center;
 	background: white;
-	margin-left: 15px;
 	cursor: pointer;
 }
 
@@ -570,7 +567,7 @@ circle {
 	background-color: white;
 	display: inline-block;
 	margin: 0 0 23px;
-	width: 323px;
+	width: 368px;
 	padding: 45px 25px;
 }
 
@@ -611,7 +608,9 @@ circle {
 
 @media screen and (max-width: 46rem) {
 	.company-section {
+		width: 100%;
 		padding: 50px 28px 28px 28px;
+		margin: 0px 0px 24px 0px;
 	}
 
 	.xs-break {
@@ -620,6 +619,10 @@ circle {
 
 	.xs-visible {
 		display: inline;
+	}
+
+	.xs-hide {
+		display: none;
 	}
 
 	.company-options-xs {
@@ -634,9 +637,41 @@ circle {
 
 	.toolbox {
 		margin-top: 20px;
+		margin-bottom: 20px;
 		order: 1;
 	}
 
+	.toolbox-inner {
+		width: 100%;
+	}
+
+	#comment-masonry {
+		column-count: 1;
+		column-gap: 0px;
+		padding: 0px;
+	} 
+
+	.comment-tile {
+		width: 100%;
+	}
+	.slide {
+		overflow-x: auto;
+		flex-wrap: nowrap;
+		-webkit-overflow-scrolling: touch;
+	  	-ms-overflow-style: -ms-autohiding-scrollbar;
+	}
+
+	.auditionee-tile {
+		background-color: #e5e1df;
+		margin: 12px 12px;
+		min-width: 221px;
+		text-align: center;
+		padding: 26px 0px;
+	}
+}
+
+div {
+	box-sizing: border-box;
 }
 
 
