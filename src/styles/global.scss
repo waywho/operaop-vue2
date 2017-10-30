@@ -1,84 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,700');
 @import './font-awesome.scss';
 @import './node_modules/flexboxgrid-sass/flexboxgrid.scss';
-
-$color-lightgray: #d4d4d4 !default;
-$color-darkgray: #706d6c !default;
-// States
-$color-error: #f03c69 !default;
-$color-success: #35beb1 !default;
-$color-warning: #f7ba45 !default;
-$color-focus: #1c86f2 !default;
-
-$color-text: $color-darkgray !default;
-
-// Font Size
-$font-size: 16px !default;
-$font-size-smaller: $font-size - 4px !default;
-$font-size-small: $font-size - 2px !default;
-$font-size-big: $font-size + 2px !default;
-$font-size-large: $font-size + 4px !default;
-$input-font-size: 15px !default;
-$input-font-size-smaller: $input-font-size - 4px !default;
-$input-font-size-small: $input-font-size - 2px !default;
-$input-font-size-big: $input-font-size + 2px !default;
-$input-font-size-large: $input-font-size + 4px !default;
-
-// Baseline
-$base-line: 24px !default;
-$base-line-smaller: 20px !default;
-$base-line-small: 20px !default;
-$base-line-big: 28px !default;
-$base-line-large: 32px !default;
-$textarea-base-line: 16px !default;
-
-// Height
-$input-height: 40px !default;
-$input-height-small: 36px !default;
-$input-height-big: 48px !default;
-$input-height-large: 56px !default;
-
-// Padding
-$input-padding-rl: 12px !default;
-$input-padding-small-rl: 12px !default;
-$input-padding-big-rl: 12px !default;
-$input-padding-large-rl: 12px !default;
-$input-textarea-padding-tb: 8px !default;
-
-// States
-$input-border-width: 1px !default;
-$input-border-color: $color-lightgray !default;
-$input-background-color: #fff !default;
-$input-box-shadow: none !default;
-
-$input-focus-background-color: #fff !default;
-$input-focus-border-color: $color-focus !default;
-$input-focus-box-shadow: 0 0 1px $color-focus inset !default;
-
-$input-error-background-color: $color-error !default;
-$input-error-border-color: $color-error !default;
-$input-error-focus-box-shadow: 0 0 1px $color-error inset !default;
-
-$input-success-background-color: $color-success !default;
-$input-success-border-color: $color-success !default;
-$input-success-focus-box-shadow: 0 0 1px $color-success inset !default;
-
-$input-disabled-opacity: .6;
-$input-disabled-color: rgba(0, 0, 0, .5);
-
-// Radius
-$input-border-radius: 15px !default;
+@import './style-variables';
 @import './forms';
+@import './typography';
+
+* {
+	box-sizing: border-box;
+}
 
 html, body {
 	width: 100%;
 	height: 100%;
 	padding: 0px;
-  	margin: 0;
+  	margin: 0px;
   	font-family: 'Raleway', Helvetica, Arial, sans-serif;
-  	font-size: 16px;
+  	font-size: $font-size;
   	background-color: #f9f9f9;
-  	line-height: 28px;
+  	line-height: $base-line;
   	overflow-x: hidden;
 }
 
@@ -105,6 +44,10 @@ div {
 	color: #998c55;
 }
 
+.is-white {
+	color: white;
+}
+
 .avatar {
   height: 42px;
   width: 42px;
@@ -115,12 +58,15 @@ div {
   margin: 0 auto;
 }
 
+ul {
+	-webkit-padding-start: 0px;
+}
 
 button,
 .button {
 	color: white;
-	background-color: #998c55;
-	border-radius: 5px;
+	background-color: #cd9d2b;
+	border-radius: 0px;
 	min-height: 30px;
 	min-width: 70px;
 	padding: 5px;
@@ -136,5 +82,117 @@ button,
         position: relative;
         top: 1px;
         margin: 0 2px;
+	}
+}
+
+.date-num {
+	font-size: $font-size-smaller !important;
+}
+
+.weeks .item {
+	font-size: $font-size-smaller !important;
+}
+
+
+.selection {
+	margin-bottom: 5px;
+}
+
+.selection-text-horizontal {
+	margin-left: 20px;
+	min-width: 120px;
+	text-align: center;
+}
+
+.selection-text-vertical {
+	margin-bottom: 15px;
+	display: block;
+}
+
+.selection-text-vertical:hover {
+	color: #998c55;
+	font-weight: bold;
+}
+
+.selection-text-horizontal:hover {
+	color: #998c55;
+	font-weight: bold;
+}
+
+.switch {
+	box-sizing: border-box;
+	position: relative;
+	display: inline-block;
+	min-width: 70px;
+	min-height: 28px;
+	text-align: center;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+.switch input {
+	display: none;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border: 1px solid #7c7b7a;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+// #ceae62 7c7b7a
+.slider:before {
+	position: absolute;
+	color: white;
+	font-family: FontAwesome;
+	content: $fa-var-times;
+	box-sizing: border-box;
+	height: 26px;
+	width: 34px;
+	left: 34px;
+	bottom: 0px;
+	display: block;
+	background-color: #7c7b7a;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked + .slider {
+	background-color: #f9f8f5;
+	border: 1px solid #ceae62;
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px #f9f8f5;
+}
+
+input:checked + .slider:before {
+	font-family: FontAwesome;
+	content: $fa-var-check;
+	background-color: #ceae62;
+	-webkit-transform: translateX(-34px);
+	-ms-transform: translateX(-34px);
+	transform: translateX(-34px);
+}
+
+ul.non-list {
+	list-style-type: none;
+}
+
+.clr {
+	clear: both;
+}
+
+@media screen and (max-width: 46rem) {
+	ul {
+		-webkit-padding-start: 0px;
+		-webkit-margin-before: 0px;
 	}
 }

@@ -24,35 +24,16 @@
 				<p>{{ company.type }} Opera Company based in {{ company.country }} |<br class="xs-break" /> Member of {{ company.membership }}</p>
 			</div>
 		</div>
-		<div class="tool-section row between-sm">
-			<div class="tool-panel col-sm-8  col-xs-12">
-				<h2>Schedule</h2>
-				<div class="selection">
-					<span class="selection-text">Production</span>
-					<span class="selection-text">Rehearsal</span>
-					<span class="selection-text">Audition</span>
-				</div>
-				<div class="calendar">
-					<vue-event-calendar :events="company.events"></vue-event-calendar>
-				</div>
-			</div>
-			<div class="toolbox col-sm-4 col-xs-12">
-				<div class="row around-xs around-sm toolbox-inner">
-					<div class="toolbox-tile col-xs-5 col-sm-5 bottom-space "><i class="fa fa-comments-o fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-					<div class="toolbox-tile col-xs-5 col-sm-5 bottom-space "><i class="fa fa-bar-chart fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-					<div class="toolbox-tile col-xs-5 col-sm-5 bottom-space "><i class="fa fa-calendar fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-					<div class="toolbox-tile col-xs-5 col-sm-5 bottom-space "><i class="fa fa-cogs fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-					<div class="toolbox-tile col-xs-5 col-sm-5"><i class="fa fa-bell-o fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-					<div class="toolbox-tile col-xs-5 col-sm-5"><i class="fa fa-database fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-				</div>		
-			</div>
+		<div class="tool-section">
+			<company-tools v-bind:companyEvents="company.events"></company-tools>
 		</div>
+
 
 		<div class="company-section row">
 			<div class="connections-title col-sm-4 col-xs-12">
 				<h2>Connections</h2>
-				<p>Company Staff</p>
-				<p>120 Connections</p>
+				<span class="selection-text-vertical">Company Staff</span>
+				<span class="selection-text-vertical">120 Connections</span>
 			</div>
 			<div class="col-sm-8 col-xs-12">
 				<div class="row slide">
@@ -73,16 +54,16 @@
 
 		<div class="company-section">
 			<h2>Audition Candidates</h2>
-			<div class="selection">
-				<span class="selection-text">Soprano</span>
-				<span class="selection-text">Mezzo Soprano</span>
-				<span class="selection-text">Tenor</span>
-				<span class="selection-text">Baritone</span>
-				<span class="selection-text">Bass</span>
+			<div class="selection row">
+				<span class="selection-text-horizontal">Soprano</span>
+				<span class="selection-text-horizontal">Mezzo Soprano</span>
+				<span class="selection-text-horizontal">Tenor</span>
+				<span class="selection-text-horizontal">Baritone</span>
+				<span class="selection-text-horizontal">Bass</span>
 			</div>
 			<div class="tile-container">
 					<div class="row slide">
-						<div v-for="auditionee in auditionees" class="auditionee-tile col-sm-3">
+						<div v-for="auditionee in auditionees" class="auditionee-tile col-lg-3 col-md-4 col-sm-4 col-xs-4">
 							<div class="avatar-frame-large">
 									<img v-bind:src="auditionee.img" />
 							</div>
@@ -153,155 +134,22 @@
 </template>
 
 <script>
+import companyTools from './companyTools';
+
 export default {
+	components: {
+		'company-tools': companyTools
+	},
 	data() {
 		return {
 			connections: [],
 			auditionees: [],
 			voice_types: [],
-			company: {
-				name: "MY OPERA",
-				city: "Toronto",
-				province: "Ontario",
-				connectionStrength: 75,
-				connectionLevel: "connected allstar",
-				type: "Regional",
-				country: "Canada",
-				membership: "Indie Opera TO",
-				connections: [{
-					firsName: "Alyssa",
-					lastName: "Durnie",
-					role: "Artistic Director",
-					img: require("../assets/images/Alyssa-Durnie.png"),
-					type: "staff"
-					}, { 
-					firstName: "Brittany",
-					lastName: "Cann",
-					role: "Coordinator",
-					img: require("../assets/images/Brittany-Cann.png"),
-					type: "staff"
-					},
-					{ firstName: "Camille",
-					lastName: "Rogers",
-					role: "Stage Director",
-					img: require("../assets/images/Camille-Rogers.png"),
-					type: "staff"
-					},
-					{ firstName: "Dalen",
-					lastName: "Roberts",
-					role: "Conductor",
-					img: require("../assets/images/Dalen-trimmed.png"),
-					type: "staff"
-					},
-					{
-					firstName: "Caitlin",
-					lastName: "McCaughe",
-					role: "Soprano",
-					img: require("../assets/images/Caitlin-McCaughey.png"),
-					type: "connector"
-					},
-					{ firstName: "Daevyd",
-					lastName: "Pepper",
-					role: "Baritone",
-					img: require("../assets/images/Daevyd-Pepper.png"),
-					type: "connector"
-					},
-					{ firstName: "Brenden",
-					lastName: "Friesen",
-					role: "Tenor",
-					img: require("../assets/images/Brenden-Friesen.png"),
-					type: "connector"
-					},
-					{ firstName: "Julie",
-					lastName: "Adams",
-					role: "Mezzo Soprano",
-					img: require("../assets/images/Julie-Adams.png"),
-					type: "connector"
-					}],
-				auditionCandidates: [{
-					firstName: "Caitlin",
-					lastName: "McCaughey",
-					voice_type: "Soprano",
-					img: require("../assets/images/Caitlin-McCaughey.png"),
-					city: "Vancouver",
-					province: "BC",
-					selected: true
-					},
-					{ firstName: "Daevyd",
-					lastName: "Pepper",
-					voice_type: "Baritone",
-					img: require("../assets/images/Daevyd-Pepper.png"),
-					city: "Calgary",
-					province: "AB",
-					selected: false
-					},
-					{ firstName: "Brenden",
-					lastName: "Friesen",
-					voice_type: "Tenor",
-					img: require("../assets/images/Brenden-Friesen.png"),
-					city: "Montreal",
-					province: "QC",
-					selected: true
-					},
-					{ firstName: "Julie",
-					lastName: "Adams",
-					voice_type: "Mezzo Soprano",
-					img: require("../assets/images/Julie-Adams.png"),
-					city: "Winnipeg",
-					province: "MB",
-					selected: true
-					},
-					{ firstName: "Matthew",
-					lastName: "Dalen",
-					voice_type: "Bass",
-					img: require("../assets/images/Matthew-Dalen.png"),
-					city: "Toronto",
-					province: "ON",
-					selected: false
-					},
-					{ firstName: "Leanne",
-					lastName: "Kaufman",
-					voice_type: "Soprano",
-					img: require("../assets/images/Leanne-Kaufman.png"),
-					city: "Vancouver",
-					province: "BC",
-					selected: true
-					},
-					{ firstName: "Joel",
-					lastName: "Allison",
-					voice_type: "Baritone",
-					img: require("../assets/images/Joel-Allison.png"),
-					city: "Toronto",
-					province: "ON",
-					selected: false
-					},
-					{ firstName: "Georgia",
-					lastName: "Burashko",
-					voice_type: "Mezzo Soprano",
-					img: require("../assets/images/Georgia-Burashko.png"),
-					city: "Toronto",
-					province: "ON",
-					selected: true
-					}, 
-					{ firstName: "Daniel",
-					lastName: "Thielman",
-					voice_type: "Tenor",
-					img: require("../assets/images/Daniel-Thielman.png"),
-					city: "Edmonton",
-					province: "AB",
-					selected: true
-					}
-				],
-				events: [{
-					date: '2017/12/15',
-					title: 'Foo',
-					desc: 'longlonglong description'
-				}, { 
-					date: '2017/11/15',
-					title: 'Wonderful Event',
-					desc: "bar"
-				}]
-			}
+		}
+	},
+	computed: {
+		company() {
+			return this.$store.state.company;
 		}
 	},
 	created () {
@@ -320,7 +168,9 @@ export default {
 </script>
 
 <style scoped>
-
+.company-account {
+	grid-area: main;
+}
 circle {
   fill: white;
   stroke: #998c55;
@@ -406,8 +256,19 @@ circle {
 
 .company-section {
 	background-color: white;
-	padding: 50px 48px 28px 100px;
+	padding: 40px 30px 30px 100px;
 	margin: 0px 0px 24px 0px;
+}
+
+.company-section h2 {
+	margin-top: 0px;
+}
+
+.tool-section {
+  padding: 0;
+  margin-bottom: 24px;
+  display: block;
+  height: 100%;
 }
 
 .xs-break {
@@ -458,18 +319,6 @@ circle {
 	justify-content: center;
 }
 
-.selection {
-	margin-bottom: 5px;
-}
-
-.selection-text {
-	margin-left: 20px;
-}
-
-.selection-text:hover {
-	color: #998c55;
-	font-size: 18px;
-}
 
 .tile-container {
 	display: flex;
@@ -509,35 +358,6 @@ circle {
 .toolbox-tile:hover, .toolbox-tile:hover .tool-icon, .tool-icon:hover  {
 	background-color: #998c55;
 	color: white;
-}
-
-
-.tool-section {
-	padding: 0;
-	margin-bottom: 24px;
-}
-
-.tool-panel {
-	background-color: white;
-	padding: 50px 20px 30px 100px;
-}
-
-.toolbox {
-	display: inline-flex;
-	background: #f9f9f9;
-}
-
-.toolbox-tile {
-	height: 143px;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	background: white;
-	cursor: pointer;
-}
-
-.bottom-space {
-	margin-bottom: 15px;
 }
 
 .comment-section {
@@ -606,7 +426,9 @@ circle {
 	margin-right: 35px;
 }
 
-@media screen and (max-width: 46rem) {
+/*for phone-only*/
+
+@media screen and (max-width: 599px) {
 	.company-section {
 		width: 100%;
 		padding: 50px 28px 28px 28px;
@@ -623,27 +445,13 @@ circle {
 
 	.xs-hide {
 		display: none;
-	}
+	}    
 
 	.company-options-xs {
-		margin: 125px;
-		display: block;
-		text-align: center;
-	}
-	.tool-panel {
-		padding: 50px 20px 50px 20px;
-		order: 2;
-	}
-
-	.toolbox {
-		margin-top: 20px;
-		margin-bottom: 20px;
-		order: 1;
-	}
-
-	.toolbox-inner {
-		width: 100%;
-	}
+	    margin: 125px;
+	    display: block;
+	    text-align: center;
+  	}
 
 	#comment-masonry {
 		column-count: 1;
@@ -669,10 +477,5 @@ circle {
 		padding: 26px 0px;
 	}
 }
-
-div {
-	box-sizing: border-box;
-}
-
 
 </style>

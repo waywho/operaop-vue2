@@ -1,25 +1,22 @@
 <template>
-  <div id="header" class="row middle-xs">
-    <div class="col-xs-6">
-      <div class="logo">
-        <img src='../assets/images/operaop-logo-trimmed.png' alt="operaop logo" />
-      </div>
+  <div id="header">
+    <div class="logo">
+      <img src='../assets/images/operaop-logo-trimmed.png' alt="operaop logo" />
     </div>
-    <div class="col-xs-6">
-      <ul class="row middle-xs end-xs">
-        <li class="col-sm-6 search" id="search-element">
-          <input type="text" id="search" placeholder="search" />
-        </li>
-        <li class="col-xs-4 col-sm-3">
-          <div class="avatar">
-            <img src="../assets/images/myopera-logo.png" />
-          </div>
-        </li>
-         <li class="col-xs-5 col-sm-3">
-            <i class="fa fa-bars fa-2x is-darkgray" aria-hidden="true"></i>
-        </li>
-      </ul>
-    </div>
+
+    <ul class="header-items">
+      <li class="search" id="search-element">
+        <input type="text" id="search" placeholder="search" />
+      </li>
+      <li class="">
+        <div class="avatar">
+          <img src="../assets/images/myopera-logo.png" />
+        </div>
+      </li>
+       <li class="">
+          <i class="fa fa-bars fa-2x is-darkgray" aria-hidden="true"></i>
+      </li>
+    </ul>
 
   </div>
 </template>
@@ -41,10 +38,17 @@ export default {
   z-index: 999;
   padding-left: 100px;
   padding-right: 100px;
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column-start: 1;
+  grid-column-end: 8;
 }
 
 #header ul {
   list-style-type: none;
+  margin-bottom: 0px;
 }
 
 .logo {
@@ -52,9 +56,19 @@ export default {
   display: inline-block;
 }
 
+.header-items {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .logo img {
   width: auto;
   height: 100%;
+}
+
+.avatar {
+    margin: 0px 30px 0px 30px;
 }
 
 .avatar img {

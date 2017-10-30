@@ -5,8 +5,11 @@ import App from './App'
 import router from './router'
 import vueEventCalendar from 'vue-event-calendar'
 import 'vue-event-calendar/dist/style.css'
+import { store } from './store/store'
+import vueMoment from 'vue-moment'
 
 Vue.use(vueEventCalendar, { locale: 'en'});
+Vue.use(require('vue-moment'));
 
 Vue.config.productionTip = false
 
@@ -17,6 +20,7 @@ Vue.filter('to-uppercase', function(value) {
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store: store,
   router,
   template: '<App/>',
   components: { App }

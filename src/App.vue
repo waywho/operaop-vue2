@@ -9,14 +9,14 @@
 <script>
 import header from './components/header'
 import footer from './components/footer'
-import companyAccount from './components/companyAccount'
+import showCompany from './components/showCompany'
 
 export default {
   name: 'app',
   components: {
     'app-header': header,
     'app-footer': footer,
-    'company-account': companyAccount
+    'show-company': showCompany
   }
 }
 </script>
@@ -30,8 +30,16 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100%;
   height: auto !important;
-  margin-top: 100px;
-  margin-bottom: -460px;
-  display: block;
+  display: grid;
+  grid-template-columns: auto repeat(6, minmax(auto, 10em)) auto;
+  grid-template-rows: 100px auto 460px;
+  grid-template-areas:
+    "header header header header header header header header"
+    "main main main main main main main main"
+    "footer footer footer footer footer footer footer footer";
+  grid-gap: 0px 0px;
+  min-width: 320px;
 }
+
+
 </style>

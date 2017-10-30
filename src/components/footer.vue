@@ -53,6 +53,7 @@ export default {
 #footer {
   background-color: white;
   padding: 125px 0px 105px 100px;
+  grid-area: footer;
 }
 
 .footer-logo {
