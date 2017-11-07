@@ -2,19 +2,19 @@
   <div id="company-tools">
     <div class="tool-panel">
       <company-calendar v-if="showTool === 'calendar'"></company-calendar>
-      <company-chats v-else-if="showTool === 'chats'">message</company-chats>
-      <div v-else-if="showTool === 'budget'">budget</div>
-      <company-settings v-else-if="showTool === 'settings'">settings</company-settings>
+      <company-chats v-else-if="showTool === 'chats'"></company-chats>
+      <company-budgetPlanner v-else-if="showTool === 'budget'"></company-budgetPlanner>
+      <company-settings v-else-if="showTool === 'settings'"></company-settings>
       <div v-else-if="showTool === 'ticket'">ticket</div>
       <div v-else-if="showTool === 'cloud'">cloud</div>
     </div>
     <div class="toolbox">
-      <div @click="showTool = 'chats'" class="toolbox-tile"><i class="fa fa-comments-o fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-      <div @click="showTool = 'budget'" class="toolbox-tile"><i class="fa fa-bar-chart fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-      <div @click="showTool = 'calendar'" class="toolbox-tile"><i class="fa fa-calendar fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-      <div @click="showTool = 'settings'" class="toolbox-tile"><i class="fa fa-cogs fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-      <div @click="showTool = 'ticket'" class="toolbox-tile"><i class="fa fa-ticket fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
-      <div @click="showTool = 'cloud'" class="toolbox-tile"><i class="fa fa-database fa-3x is-lightgray tool-icon" aria-hidden="true"></i></div>
+      <div @click="showTool = 'chats'" class="toolbox-tile is-lightgray"><i class="fa fa-comments-o fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Messages</div>
+      <div @click="showTool = 'budget'" class="toolbox-tile is-lightgray"><i class="fa fa-bar-chart fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Budget Planner</div>
+      <div @click="showTool = 'calendar'" class="toolbox-tile is-lightgray"><i class="fa fa-calendar fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Schedule</div>
+      <div @click="showTool = 'settings'" class="toolbox-tile is-lightgray"><i class="fa fa-cogs fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Settings</div>
+      <div @click="showTool = 'ticket'" class="toolbox-tile is-lightgray"><i class="fa fa-ticket fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Tickets</div>
+      <div @click="showTool = 'cloud'" class="toolbox-tile is-lightgray"><i class="fa fa-play-circle fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Media</div>
      </div>
   </div>
 </template>
@@ -23,16 +23,18 @@
 import calendar from './calendar';
 import settings from './settings';
 import chats from './chats';
+import budgetPlanner from './budgetPlanner';
 
 export default {
   components: {
     'company-calendar': calendar,
     'company-settings': settings,
     'company-chats': chats,
+    'company-budgetPlanner': budgetPlanner
   },
   data() { 
     return {
-      showTool: 'chats'
+      showTool: 'budget'
     }
 
   },
@@ -55,7 +57,7 @@ export default {
   padding: 0px 0px 0px 20px;
   width: 63%;
   display: inline-block;
-  height: 100%;
+  min-height: 100%;
   float: left;
 }
 
@@ -73,6 +75,7 @@ export default {
 .toolbox-tile {
   height: 143px;
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: white;

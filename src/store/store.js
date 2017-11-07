@@ -25,6 +25,16 @@ export const store = new Vuex.Store({
 				created: Date.now(),
 				sender: 'Jane',
 				lastMessage: 'And then?'
+			},
+			"EdwardID": {	
+				created: Date.now(),
+				sender: 'Edward',
+				lastMessage: 'And then?'
+			},
+			"GrantID": {	
+				created: Date.now(),
+				sender: 'Grant',
+				lastMessage: 'And then?'
 			}
 		},
 		users: {
@@ -49,6 +59,18 @@ export const store = new Vuex.Store({
 			"JaneID": {
 				firstName: "Jane",
 				lastName: "Great",
+				role: "Project Coordinator",
+				isActive: false
+			},
+			"EdwardId": {
+				firstName: "Edward",
+				lastName: "Great",
+				role: "Project Coordinator",
+				isActive: false
+			},
+			"GrantID": {
+				firstName: "Grant",
+				lastName: "Ferries",
 				role: "Project Coordinator",
 				isActive: false
 			}
@@ -141,6 +163,50 @@ export const store = new Vuex.Store({
 					text: "Today, can you get here by 5pm?",
 					timestamp: 1459361875360,
 				}
+			},
+			"EdwardID": {
+				"m1": {
+					sender: "Edward",
+					text: "I would like to audition",
+					timestamp: 1459361875337,
+				},
+				"m2": {
+					sender: "MyOpera",
+					text: "When would you like to come in?",
+					timestamp: 1459361875340,
+				},
+				"m3": {
+					sender: "Edward",
+					text: "What about tomorrow",
+					timestamp: 1459361875345,
+				},
+				"m4": {
+					sender: "MyOpera",
+					text: "Today, can you get here by 5pm?",
+					timestamp: 1459361875360,
+				}
+			},
+			"GrantID": {
+				"m1": {
+					sender: "Grant",
+					text: "I am wonderful! Thanks",
+					timestamp: 1459361875337,
+				},
+				"m2": {
+					sender: "MyOpera",
+					text: "That is great news.",
+					timestamp: 1459361875340,
+				},
+				"m3": {
+					sender: "Grant",
+					text: "I can definitely do that.",
+					timestamp: 1459361875345,
+				},
+				"m4": {
+					sender: "MyOpera",
+					text: "Today, when can you get here?",
+					timestamp: 1459361875360,
+				}
 			}
 		},
 		company: {
@@ -163,7 +229,7 @@ export const store = new Vuex.Store({
 						isChecked: true
 					}],
 				connections: [{
-					firsName: "Alyssa",
+					firstName: "Alyssa",
 					lastName: "Durnie",
 					role: "Artistic Director",
 					img: require("../assets/images/Alyssa-Durnie.png"),
@@ -294,8 +360,76 @@ export const store = new Vuex.Store({
 					date: '2017/11/15',
 					title: 'Wonderful Event',
 					desc: "bar"
-				}]
-			}
+				}],
+				posts: [
+					{
+					content: 'Veniam tofu raw denim id. Waistcoat culpa consequat DIY, aliqua try-hard fugiat taxidermy succulents. Enim helvetica viral heirloom raclette. Veniam duis salvia taiyaki poke thundercats before they sold out meh hella dolore skateboard. Swag fam glossier ut.',
+					imgs: "",
+					timestamp: 	1508518037,
+					likes: 24,
+					comments: [{
+							user: 'Ed Remi',
+							user_img: require("../assets/images/Brenden-Friesen.png"),
+							commentText: 'Pounce on unsuspecting person eat prawns daintily with a claw then lick paws clean wash down prawns with a lap.',
+							timestamp: 	1508521637
+						}, {
+							user: 'Jane Smith',
+							user_img: require("../assets/images/Camille-Rogers.png"),
+							commentText: 'The short, stubby, 11.2-ounce Duvel-style bottle releases a dark, leathery-brown brew, with a tan-colored, super-tight, creamy, fluffy lacing.',
+							timestamp: 	1508521637
+						}]
+					}, {
+					content: 'Doggo ipsum floofs the neighborhood pupper bork. Stop it fren pupper heckin good boys and girls long bois the neighborhood pupper shooberino, boofers clouds heckin angery woofer very jealous pupper.',
+					imgs: [require("../assets/images/greathall.jpg"), require("../assets/images/stagetub.jpg")],
+					timestamp: 	1508518037,
+					likes: 24,
+					comments: [{
+							user: 'Ed Remi',
+							user_img: require("../assets/images/Dalen-trimmed.png"),
+							commentText: 'Cake bear claw cheesecake oat cake candy canes chocolate.',
+							timestamp: 	1508521637
+						}, {
+							user: 'Jane Smith',
+							user_img: require("../assets/images/Caitlin-McCaughey.png"),
+							commentText: 'The short, stubby, 11.2-ounce Duvel-style bottle releases a dark, leathery-brown brew, with a tan-colored, super-tight, creamy, fluffy lacing.',
+							timestamp: 	1508521637
+						}]
+					},{
+					content: 'Boof you are doing me a frighten he made many woofs stop it fren, sub woofer very jealous pupper. Boofers puggorino shoober long water shoob what a nice floof boof, dat tungg tho shoob floofs.',
+					imgs: "",
+					timestamp: 	1508518037,
+					likes: 24,
+					comments: [{
+							user: 'Edward Great',
+							user_img: require("../assets/images/Daniel-Thielman.png"),
+							commentText: 'Pounce on unsuspecting person eat prawns daintily with a claw then lick paws clean wash down prawns with a lap.',
+							timestamp: 	1508521637
+						}, {
+							user: 'Jane Smith',
+							user_img: require("../assets/images/Leanne-Kaufman.png"),
+							commentText: 'Marshmallow topping sweet jujubes bonbon cupcake I love sweet roll I love.',
+							timestamp: 	1508521637
+						}]
+					},{
+					content: 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia?',
+					imgs: [require("../assets/images/backstage.gif")],
+					timestamp: 	1508518037,
+					likes: 24,
+					comments: [{
+							user: 'Maggie Gyllenhall',
+							user_img: require("../assets/images/Georgia-Burashko.png"),
+							commentText: 'Dessert apple pie wafer jelly cupcake. Sweet donut brownie bear claw.',
+							timestamp: 	1508521637
+						}, {
+							user: 'Tom Price',
+							user_img: require("../assets/images/Julie-Adams.png"),
+							commentText: 'Gingerbread gummi bears bonbon cheesecake wafer tiramisu. ',
+							timestamp: 	1508521637
+						}]
+					}
+
+				]
+		}
 	},
 	getters: {
 		

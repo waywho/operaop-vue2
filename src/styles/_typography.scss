@@ -20,7 +20,7 @@ a:hover {
 // Headings
 h1.title, h1, h2, h3, h4, h5, h6 {
 	font-family: $headings-font-family;
-	font-weight: bold;
+	font-weight: 800;
 	color: $color-headings;
 	text-rendering: optimizeLegibility;
     margin-bottom: $heading-margin-bottom;
@@ -247,6 +247,11 @@ figure {
 	text-align: right;
 }
 
+.text-golden {
+	color: #cd9d2b;
+	font-weight: 500;
+}
+
 // Modifiers
 ul.unstyled {
     & {
@@ -270,10 +275,15 @@ ul.unstyled {
     font-style: italic !important;
 }
 .strong {
-    font-weight: bold !important;
+    font-weight: 700 !important;
 }
+
+.medium {
+	font-weight: 500 !important;
+}
+
 .normal {
-    font-weight: normal !important;
+    font-weight: 400 !important;
 }
 .muted {
     opacity: .55;
@@ -312,6 +322,10 @@ a.muted:hover {
 .nowrap,
 .nowrap td {
 	white-space: nowrap;
+}
+
+.warning {
+	color: $color-warning;
 }
 
 

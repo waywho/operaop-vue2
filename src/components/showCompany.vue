@@ -38,7 +38,7 @@
 			<div class="col-sm-8 col-xs-12">
 				<div class="row slide">
 					<div v-for="connection in connections" class="connection-tile col-sm col-xs">
-						<div class="avatar-frame">
+						<div class="avatar-medium connection-avatar">
 							<img v-bind:src="connection.img" />
 						</div>
 						<span class="name">{{ connection.firstName}} {{ connection.lastName }}</span><br />
@@ -64,7 +64,7 @@
 			<div class="tile-container">
 					<div class="row slide">
 						<div v-for="auditionee in auditionees" class="auditionee-tile col-lg-3 col-md-4 col-sm-4 col-xs-4">
-							<div class="avatar-frame-large">
+							<div class="avatar-large">
 									<img v-bind:src="auditionee.img" />
 							</div>
 							<div class="tile-text">
@@ -86,12 +86,12 @@
 			</div>
 		</div>
 
-		<div class="comment-section">
-			<div class="comment-box col-sm-offset-3 col-sm-9">
+		<div class="post-section">
+			<div class="post-box col-sm-offset-3 col-sm-9">
 				<div class="row">
 					<div class="col-xs-2">
 						<div class="row">
-				          <div class="avatar">
+				          <div class="avatar-border">
 				            <img src="../assets/images/myopera-logo.png" />
 				          </div>
 				      </div>
@@ -100,8 +100,8 @@
 						<textarea ></textarea>
 						<div class="row between-sm">
 							<div class="col-sm-8">
-								<i class="fa fa-picture-o" aria-hidden="true"></i>
-								<i class="fa fa-map-marker" aria-hidden="true"></i>
+								<i class="fa fa-picture-o is-darkgray" aria-hidden="true"></i>
+								<span class="smaller is-darkgray">Add image</span>
 							</div>
 							<div class="col-sm-4 end-sm col-xs-4 end-xs">
 								<button>POST</button>
@@ -110,22 +110,41 @@
 					</div>
 				</div>
 			</div>
-			<div id="comment-masonry" class="col-xs-12 col-sm-offset-3 col-sm-9">
-				<div class="comment-tile">
-					<div class="comment-header">
-						<div class="comment-header-status">
-							<span class="is-golden">Justin Taylor</span><span>posted a status</span><div class="comment-circle"></div>
+			<div id="post-masonry" class="col-xs-12 col-sm-offset-3 col-sm-9">
+				<div v-for="post in company.posts" class="post-tile">
+					<div class="post-header">
+						<span class="name is-golden strong">{{company.name}}</span>
+						<div class="status">
+							<span class="smaller">{{ post.timestamp | moment("from")}} </span><div class="comment-circle"></div><span class="smaller">posted a status</span>
 						</div>
-						<div class="avatar">
+
+		          	</div>
+		          	<div class="post-text">{{post.content}}</div>
+		          	<div v-if="post.imgs.length > 1" class="multi-image-container">
+		          		<div v-for="image in post.imgs" class="image-in-row"><img v-bind:src="image" /></div>
+		          	</div>
+		          	<div v-else-if="post.imgs.length === 1" class="post-image"><img v-bind:src="post.imgs" /></div>
+
+		          	<div class="post-icons">
+			          	<i class="fa fa-heart post-icon smaller" aria-hidden="true"></i><span class="icon-count smaller">{{post.likes}}</span>
+			          	<i class="fa fa-comment post-icon smaller" aria-hidden="true"></i><span class="icon-count smaller">{{post.comments.length}} comments</span>
+		          	</div>
+		          	<hr class="divider" />
+		          	<div v-for="comment in post.comments" class="comment-container">
+		          		<div class="avatar comment-avatar"><img :src="comment.user_img"></div>
+		          		<div class="comment-text">
+		          		<span class="small medium text-golden">{{comment.user}}</span>
+		          		<p class="smaller">{{comment.commentText}}</p>
+		          		</div>
+		          	</div>
+		          	<div class="comment-input-container">
+		          		<div class="avatar-small-border">
 			            	<img src="../assets/images/myopera-logo.png" />
 			          	</div>
-		          	</div>
-		          	<div class="comment-text">asdfas asdfasdfq4 qehfstjstaer h32tasdf</div>
-		          	<div class="comment-image"></div>
-		          	<div class="comment-icons">
-			          	<i class="fa fa-heart comment-icon" aria-hidden="true"></i><span class="icon-count">123</span>
-			          	<i class="fa fa-comment comment-icon" aria-hidden="true"></i><span class="icon-count">123</span>
-		          	</div>
+			          	<div class="message-input-container">
+							<input type="text" class="message-input smaller" placeholder="write a comment" />
+						</div>
+					</div>
 				</div>
 			</div>
 
@@ -167,10 +186,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../styles/style-variables.scss';
+
 .company-account {
 	grid-area: main;
 }
+
 circle {
   fill: white;
   stroke: #998c55;
@@ -279,31 +301,13 @@ circle {
 	display: none;
 }
 
-.avatar-frame {
-	height: 98px;
-	width: 98px;
-	border-radius: 50%;
-	margin-bottom: 21px;
-}
-
-.avatar-frame img {
-	width: 100%;
-}
-
-.avatar-frame-large {
-	height: 119px;
-	width: 119px;
-	border-radius: 50%;
-	margin: 0 auto 26px auto;
-}
-
-
 .name {
-	font-size: 16px;
+	font-size: $font-size-small;
+	font-weight: 500;
 }
 
 .role {
-	font-size: 12px;
+	font-size: $font-size-smaller;
 }
 
 .more {
@@ -317,6 +321,10 @@ circle {
 	display: inline-flex;
 	align-items: flex-end;
 	justify-content: center;
+}
+
+.connection-avatar {
+	margin-bottom: 21px;
 }
 
 
@@ -338,6 +346,7 @@ circle {
 }
 
 .tile-text {
+	margin-top: 26px;
 	margin-bottom: 19px;
 }
 
@@ -360,30 +369,31 @@ circle {
 	color: white;
 }
 
-.comment-section {
+.post-section {
 	height: 1700px;
 	margin-bottom: 70px;
 }
 
-.comment-box {
+.post-box {
 	background: white;
 	padding-top: 35px;
 	padding-bottom: 35px;
 	margin-bottom: 26px;
 }
 
-.comment-box textarea {
+.post-box textarea {
 	height: 79px;
 	max-width: 95%;
 	margin-bottom: 36px;
+	border: 2px solid #d4d4d4;
 }
 
-#comment-masonry {
+#post-masonry {
 	column-count: 2;
 	column-gap: 23px;
 }
 
-.comment-tile {
+.post-tile {
 	background-color: white;
 	display: inline-block;
 	margin: 0 0 23px;
@@ -391,39 +401,95 @@ circle {
 	padding: 45px 25px;
 }
 
-.comment-header {
+.post-text {
 	margin-bottom: 30px;
 }
 
-.comment-header-status {
-	margin-bottom: 22px;
-	display: flex;
-	justify-content: space-between;
-}
-
-.comment-text {
+.post-header {
 	margin-bottom: 30px;
 }
 
-.comment-image {
+
+.post-image {
 	margin-bottom: 30px;
 	width: 100%;
 }
 
+.image-in-row {
+	min-width: 250px;
+	margin: 0px 10px;
+	overflow-y: hidden;
+}
+
+.image-row img {
+	width: 100%;
+}
+
+.multi-image-container {
+	display: flex;
+	overflow-x: auto;
+	flex-wrap: nowrap;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	margin-bottom: 30px;
+}
+
 .comment-circle {
-	width: 25px;
-	height: 25px;
+	width: 9px;
+	height: 9px;
 	border: 2px solid #73020d;
 	border-radius: 50%;
 	display: inline-block;
+	margin-right: 5px;
 }
 
-.comment-icon {
+.status {
+	display: block;
+}
+
+.post-icon {
 	margin-right: 14px;
+}
+
+.post-icons {
+	margin-bottom: 25px;
+}
+
+.comment-input-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.comment-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.comment-avatar {
+	min-width: 41px;
+	margin-right: 24px;
 }
 
 .icon-count {
 	margin-right: 35px;
+}
+
+.message-input-container {
+	flex-grow: 2;
+	margin-left: 10px;
+}
+
+.message-input {
+	border: 2px solid #cd9d2b;
+}
+
+.divider {
+	border-width: 2px;
+	border-color: #cd9d2b;
+	background-color: #cd9d2b;
+	color: #cd9d2b;
 }
 
 /*for phone-only*/

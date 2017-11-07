@@ -2,25 +2,26 @@
   <div class="message-panel">
 	  	<div class="message-sidepanel">
 	  		<h2>Messages</h2>
+	  		<input type="text" id="sender-search" class="small" placeholder="search" />
 	  		<div class="senders-window">
-		  		<input type="text" id="sender-search" placeholder="search" />
+		  		
 		  		<div v-for="(chat, key) in chats" :class="{ sender, isActive: chat.isActive }" v-on:click="getMessages(key)">
 		  			<div class="avatar-box">
-			  			<div class="avatar">
+			  			<div class="avatar-border">
 					      	<img src="../assets/images/myopera-logo.png" />
 					    </div>
 					</div>
 				    <div class="sender-name">
 				    	<b>{{ chat.sender }}</b><br />
-				    	<span class="small">{{chat.lastMessage}}</span>
+				    	<span class="smaller is-silver medium">{{chat.lastMessage}}</span>
 				    </div>
 		  		</div>
 	  		</div>
 	  	</div>
 	  	<div class="message-window">
 	  		<div class="message-title">
-				<b>{{ sender.firstName }} {{ sender.lastName}}</b><br />
-				<span class="small">{{ sender.role }}</span>
+				<span class="small strong">{{ sender.firstName }} {{ sender.lastName}}</span><br />
+				<span class="smaller">{{ sender.role }}</span>
 			</div>
 		  	<div class="messages">
 			  	<message v-for="message in messages" :message="message" :key="message.created">
@@ -73,7 +74,8 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
+@import '../styles/style-variables.scss';
 
 .message-panel {
 	min-height: 100%;
@@ -84,21 +86,27 @@ export default {
 
 .message-window {
 	border: 1px solid #dddcdc;
-	min-height: 459px;
+	height: 461px;
 	flex-grow: 2;
 }
 
 .message-title {
-	height: 10%;
+	padding: 25px 25px 0px;
 }
 
 .messages {
-	height: 65%;
+	height: 63%;
 	overflow-y: scroll;
+	padding: 25px 25px;
 }
 
 .message-sidepanel {
 	flex-grow: 1;
+}
+
+.senders-window {
+	overflow-y: scroll;
+	height: 295px;
 }
 
 .sender {
@@ -110,9 +118,6 @@ export default {
 	align-items: center;
 }
 
-.senders-window {
-	overflow-y: scroll;
-}
 
 #sender-search {
 	max-width: 80%;
@@ -153,6 +158,7 @@ export default {
 
 .sender-name {
 	display: inline-block;
+	font-size: $font-size-small;
 }
 
 .isActive {

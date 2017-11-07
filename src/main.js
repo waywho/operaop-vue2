@@ -7,9 +7,14 @@ import vueEventCalendar from 'vue-event-calendar'
 import 'vue-event-calendar/dist/style.css'
 import { store } from './store/store'
 import vueMoment from 'vue-moment'
+import 'chart.js'
+import 'hchs-vue-charts'
 
+
+Vue.use(VueCharts);
 Vue.use(vueEventCalendar, { locale: 'en'});
 Vue.use(require('vue-moment'));
+
 
 Vue.config.productionTip = false
 

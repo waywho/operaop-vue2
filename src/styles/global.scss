@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,700,800');
 @import './font-awesome.scss';
 @import './node_modules/flexboxgrid-sass/flexboxgrid.scss';
 @import './style-variables';
@@ -32,6 +32,10 @@ div {
 	box-sizing: border-box;
 }
 
+.is-silver {
+	color: $color-silver;
+}
+
 .is-darkgray {
 	color: $color-darkgray;
 }
@@ -41,22 +45,109 @@ div {
 }
 
 .is-golden {
-	color: #998c55;
+	color: #cd9d2b;
 }
 
 .is-white {
 	color: white;
 }
 
-.avatar {
-  height: 42px;
-  width: 42px;
+.avatar-border {
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
   border: solid 3px #998c55;
   display: inline-flex;
   align-items: center;
   margin: 0 auto;
 }
+
+.avatar-large-border {
+  height: 119px;
+  width: 119px;
+  border-radius: 50%;
+  border: solid 3px #998c55;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.avatar-medium-border {
+  height: 98px;
+  width: 98px;
+  border-radius: 50%;
+  border: solid 3px #998c55;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.avatar-small-border {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  border: solid 3px #998c55;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.avatar-smaller-border {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: solid 3px #998c55;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.avatar {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.avatar-large {
+  height: 119px;
+  width: 119px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.avatar-medium {
+  height: 98px;
+  width: 98px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.avatar-small {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+
+.avatar-smaller {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
 
 ul {
 	-webkit-padding-start: 0px;

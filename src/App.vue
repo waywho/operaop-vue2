@@ -31,7 +31,7 @@ export default {
   min-height: 100%;
   height: auto !important;
   display: grid;
-  grid-template-columns: auto repeat(6, minmax(auto, 10em)) auto;
+  grid-template-columns: auto repeat(6, minmax(auto, 280px)) auto;
   grid-template-rows: 100px auto 460px;
   grid-template-areas:
     "header header header header header header header header"
@@ -39,6 +39,8 @@ export default {
     "footer footer footer footer footer footer footer footer";
   grid-gap: 0px 0px;
   min-width: 320px;
+  max-width: 1680px;
+  margin: auto;
 }
 
 

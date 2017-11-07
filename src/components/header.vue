@@ -6,10 +6,10 @@
 
     <ul class="header-items">
       <li class="search" id="search-element">
-        <input type="text" id="search" placeholder="search" />
+        <input type="text" id="search" class="small" placeholder="search" />
       </li>
       <li class="">
-        <div class="avatar">
+        <div class="avatar-small-border logo-space">
           <img src="../assets/images/myopera-logo.png" />
         </div>
       </li>
@@ -67,7 +67,7 @@ export default {
   height: 100%;
 }
 
-.avatar {
+.logo-space {
     margin: 0px 30px 0px 30px;
 }
 
