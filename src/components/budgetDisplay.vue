@@ -24,7 +24,7 @@
 	  			<company-budgetInput v-for="(item, key, index) in lineItems" :key="key" :id="'lineItem' + key" :input-name="'Budget Item'" :text-value="item.description" :amount-value="item.amount" v-on:inputValue="addBudgetLines($event)"></company-budgetInput>
 	  		</div>
 	  		<div>
-	  			
+	  			<button v-on:click="saveAccount()" class="smaller">Save</button>
 
 	  			
 	  		</div>
@@ -123,17 +123,24 @@ export default {
 
   		const unspent = this.currentDisplayAccount.amount - this.summing(this.lineItemInputs)
 
-  		this.currentDisplayAccount.lineItems = this.lineItemInputs
  	 	this.charting(this.lineItemInputs)
 		// this.budgetChartData.labels.push('unspent')
 		// this.budgetChartData.data.push(unspent)
-
+		// this.currentDisplayAccount.lineItems = filteredArray;
 		console.log(this.budgetChartData)
 		
 		// need to update budget
 
 		// console.log('currentDisplayAccount with line items 7')
 		// console.log(this.currentDisplayAccount)
+  	},
+  	saveAccount() {
+  		const inputArray = Object.values(this.lineItemInputs)
+  		let filteredArray = inputArray.filter(function(object) {
+ 	 		return object.descripton !== "" && object.amount !== null
+ 	 	})
+
+  		this.currentDisplayAccount.lineItems = filteredArray;
   	},
   	charting(lineitems) {
   		const inputArray = Object.values(lineitems)

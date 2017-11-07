@@ -13,7 +13,7 @@
     "chart.js": "^2.7.1",
     "express": "^4.16.2",
     "flexboxgrid-sass": "^8.0.5",
-    "hchs-vue-charts": "^1.2.31",
+    "hchs-vue-charts": "^1.2.8",
     "vue": "^2.5.3",
     "vue-event-calendar": "git+https://github.com/waywho/vue-event-calendar.git",
     "vue-moment": "^2.1.0",
