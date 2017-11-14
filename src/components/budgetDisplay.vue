@@ -1,7 +1,7 @@
 <template>
   <div class="budget-display">
   	<div class="selection budget-accounts">
-   		<span v-for="item in companyBudget.accounts"  class="selection-text-horizontal col-sm-2 col-xs small" v-on:click.prevent="getAccount(item)">{{item.description}}</span>
+   		<span v-for="(item, key) in companyBudget.accounts"  class="selection-text-horizontal col-sm-2 col-xs small" v-on:click.prevent="getAccount(item, key)">{{item.description}}</span>
 	</div>
     <div class="panels">
 	  	<div class="panel-left">
@@ -12,16 +12,17 @@
 	  			<span class="strong small budget-category">{{currentDisplayAccount.description}}</span><span class="strong small is-darkgray">${{currentDisplayAccount.amount}}</span>
 	  		</div>
 	  		<div class="budget-line">
+	  			<span class="smaller">Budget Spent to Date</span>
 	  			<div class="progress-border">
 	  				<div class="progress smaller" :style="'width:' + percentSpent + '%'">{{percentSpent}}%</div>
 	  			</div>
-	  			<span class="smaller">Budget Spent to Date</span>
+	  			
 	  		</div>
 
 	  		<div class="line-items budget-line">
 	  			<span class="strong small">Field & Entry</span>
 	  			<span class="smaller">Add fields to budget planner</span>
-	  			<company-budgetInput v-for="(item, key, index) in lineItems" :key="key" :id="'lineItem' + key" :input-name="'Budget Item'" :text-value="item.description" :amount-value="item.amount" v-on:inputValue="addBudgetLines($event)"></company-budgetInput>
+	  			<company-budgetInput v-for="(item, index) in lineItems" :key="item.id" :id="item.id" :input-name="'Budget Item'" :text-value="item.description" :amount-value="item.amount" :color="budgetChartData.backgroundColor[index]" v-on:inputValue="addBudgetLines($event)"></company-budgetInput>
 	  		</div>
 	  		<div>
 	  			<button v-on:click="saveAccount()" class="smaller">Save</button>
@@ -34,13 +35,11 @@
 </template>
 
 <script>
-import budgetLedger from './budgetLedger'
 import budgetInput from './budgetInput'
 
 export default {
   name: 'budgetDisplay',
   components: {
-  	'company-budgetLedger': budgetLedger,
   	'company-budgetInput': budgetInput
   },
   props: {
@@ -49,6 +48,7 @@ export default {
   data () {
     return {
   		currentDisplayAccount: {
+  			id: "",
   			description:"",
   			amount: 0,
   			lineItems: []
@@ -78,40 +78,41 @@ export default {
   	lineItems() {
   		if (this.currentDisplayAccount.lineItems.length) {
   			console.log("here are the budget items 1")
-  			console.log(this.currentDisplayAccount.lineItems.length)
+  			console.log(this.currentDisplayAccount)
   			// var i = Object.keys(this.currentDisplayAccount.lineItems)
   			// for(i; i < 3; i++) {
   			// 	this.currentDisplayAccount.lineItems[i] = {"description":"", "amount": null}
   			// }
+  			this.lineItemInputs = {};
 
-  			for (var i = 0; i < this.currentDisplayAccount.lineItems.length; i++) {
-  				this.lineItemInputs['lineItem' + i] = this.currentDisplayAccount.lineItems[i]
-  			}
-  			console.log(this.lineItemInputs)
-
-  			return this.lineItemInputs;
+  			return this.currentDisplayAccount.lineItems;
   		} else {
-  			console.log("no line items! 1-n")
+  			console.log("no line item! 1-n")
   			console.log(this.currentDisplayAccount)
-  			// for(var i = 0; i < 3; i++) {
-  			// 	this.lineItemInputs['lineItem' + i] = {"description":"", "amount": null}
-  			// }
-  			// console.log(this.lineItemInputs)
-  			// this.currentDisplayAccount.lineItems = this.lineItemInputs
-  			return 3;
+  			const tempLineItems = []
+  			for(var i = 0; i < 3; i++) {
+  				tempLineItems.push({id: 'lineItem' + i + Date.now(), description: "", amount: null})
+  			}
+  			console.log(tempLineItems)
+
+  			return tempLineItems;
   		}
   	}  	
   },
   methods: {
-  	getAccount(object) {
-  		if(object.lineItems) {
-  			this.currentDisplayAccount = object
-  		} else {
-  			object['lineItems'] = []
-  			this.currentDisplayAccount = object
-  		}
+  	getAccount(object, key) {
+  		console.log('get account!')
+  		console.log(this.currentDisplayAccount.lineItems)
+  		// while(this.currentDisplayAccount.lineItems.length > 0) {
+  		// 	this.currentDisplayAccount.lineItems.pop();
+  		// }
+
+   		this.currentDisplayAccount.lineItems = [];
+  		Object.assign(this.currentDisplayAccount, Object.assign(object, {id: key}));
+
+  		this.percentSpent = this.percent(this.currentDisplayAccount.lineItems, this.currentDisplayAccount.amount)
   		this.charting(this.currentDisplayAccount.lineItems);
-  		console.log(this.currentDisplayAccount)
+  		console.log(this.currentDisplayAccount);
   	},
   	addBudgetLines(object) {
   		// console.log('lineItemInputs 5')
@@ -135,12 +136,26 @@ export default {
 		// console.log(this.currentDisplayAccount)
   	},
   	saveAccount() {
-  		const inputArray = Object.values(this.lineItemInputs)
+  		const inputArray = []
+  		for (let key in this.lineItemInputs) {
+  			this.lineItemInputs[key].id = key
+  			inputArray.push(this.lineItemInputs[key])
+  		}
+
   		let filteredArray = inputArray.filter(function(object) {
  	 		return object.descripton !== "" && object.amount !== null
  	 	})
+ 	 	console.log(filteredArray);
 
   		this.currentDisplayAccount.lineItems = filteredArray;
+
+  		const updatedAccount = {}
+  		updatedAccount[this.currentDisplayAccount.id] = {
+  			description: this.currentDisplayAccount.description,
+  			amount: this.currentDisplayAccount.amount,
+  			lineItems: this.currentDisplayAccount.lineItems
+  		}
+  		this.$emit('accountUpdate', updatedAccount);
   	},
   	charting(lineitems) {
   		const inputArray = Object.values(lineitems)
@@ -150,8 +165,6 @@ export default {
 
  	 	console.log('input array')
  	 	console.log(filteredArray)
-
- 	 	this.currentDisplayAccount['lineItems'] = filteredArray
 
   		const arrayKeys = []
  	 	const arrayValues = []
@@ -181,7 +194,10 @@ export default {
   },
   created() {
   	// get initial display account
-  	Object.assign(this.currentDisplayAccount, this.companyBudget.accounts[Object.keys(this.companyBudget.accounts)[0]]);
+
+  	Object.assign(this.currentDisplayAccount, 
+  		Object.assign(this.companyBudget.accounts[Object.keys(this.companyBudget.accounts)[0]], 
+  			{id: Object.keys(this.companyBudget.accounts)[0]}));
   	console.log('currentDisplayAccount 8')
   	console.log(this.currentDisplayAccount)
   	this.percentSpent = this.percent(this.currentDisplayAccount.lineItems, this.currentDisplayAccount.amount)
@@ -217,7 +233,7 @@ export default {
 	cursor: pointer;
 }
 .budget-line {
-	margin-bottom: 35px;
+	margin-bottom: 25px;
 }
 
 .item {

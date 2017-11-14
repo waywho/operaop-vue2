@@ -305,6 +305,12 @@ a.muted:hover {
 	font-size: $font-size-small;
 	line-height: $base-line-small;
 }
+
+.tiny {
+	font-size: 8px;
+	line-height: 10px;
+}
+
 .big {
 	font-size: $font-size-big;
 	line-height: $base-line-big;

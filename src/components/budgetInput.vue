@@ -1,8 +1,8 @@
 <template>
-	<div class="budgetInput">
+	<div class="budget-input">
 		<div class="warning smaller" v-if="error.isShow">{{error.message}}</div>
-		<input class="smaller line-item item-input" :id="id" type="text" v-model.lazy="budgetLineItem" :placeholder="inputName" />
-  		<input class="smaller amount-input item-input" :id="id" type="number" placeholder="Enter Amount" v-model.lazy="amountInput"  />
+		<input class="smaller line-item item-input" :id="id" type="text" :style="'background-color:'+ color +'; border-color:'+ color" v-model.lazy="budgetLineItem" :placeholder="inputName" />
+  		<input class="smaller amount-input item-input" :id="id" type="number" placeholder="Enter Amount" :style="'border-color:'+ color" v-model.lazy="amountInput"  />
 	</div>
 </template>
 
@@ -19,7 +19,8 @@ export default {
   		type: String
   	},
   	textValue: String,
-  	amountValue: Number
+  	amountValue: Number,
+  	color: String,
   },
   data () {
     return {
@@ -43,7 +44,7 @@ export default {
   		if (this.budgetLineItem && value) {
   			const lineItem = {};
   			console.log('this id')
-  			console.log(this.id)
+  			console.log(this.key)
   			lineItem[this.id] = {'description' : this.budgetLineItem, 'amount' : Number(value)};
   			this.error.message = ""
   			this.error.isShow = false
@@ -64,7 +65,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.budgetInput {
+.budget-input {
 	display: block;
 	max-width: 306px;
 	width: 100%;
@@ -85,12 +86,6 @@ export default {
 	position: absolute;
 	left: 42%;
 	text-align: right;
-}
-
-.item-input {
-	border: 2px solid #cd9d2b;
-	width: 57%;
-	height: 21px;
 }
 
 .line-item::-webkit-input-placeholder { /* Chrome/Opera/Safari */

@@ -8,9 +8,11 @@ import 'vue-event-calendar/dist/style.css'
 import { store } from './store/store'
 import vueMoment from 'vue-moment'
 import 'chart.js'
+import VueMediaEmbed from 'vue-media-embed'
 import 'hchs-vue-charts'
+import Vuex from 'vuex'
 
-
+Vue.use(VueMediaEmbed, { store })
 Vue.use(VueCharts);
 Vue.use(vueEventCalendar, { locale: 'en'});
 Vue.use(require('vue-moment'));

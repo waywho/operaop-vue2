@@ -11,14 +11,17 @@
 	  	</div>
 	</div>
 	<div class="col-sm-12">
+		<div class="notification-title">Notify me when:</div>
 		<ul class="non-list">
-			<li v-for="setting in notificationSettings">
+			<li v-for="setting in notificationSettings" class="notification-line small">
 				{{setting.title}}
+				<div>
 				<label class="switch">
 					<input type="checkbox" v-model="setting.isChecked"/>
 					<span class="slider"></span>
 				</label>
-				{{setting.desc}}
+				</div>
+				<div class="notification-desc smaller">{{setting.desc}}</div>
 			</li>
 		</ul>
 	</div>
@@ -45,9 +48,23 @@ export default {
 <style scoped>
 
 #notification-settings {
-	min-height: 100%;
 	border: 1.5px solid #ceae62;
 	padding: 26px 22px 26px 28px;
+}
+
+.notification-title {
+	margin-bottom: 25px;
+}
+
+.notification-line {
+	display: flex;
+	align-items: center;
+	margin-bottom: 25px;
+}
+
+.notification-desc {
+	display: inline-block;
+	margin-left: 10px;
 }
 
 </style>

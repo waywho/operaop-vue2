@@ -176,6 +176,12 @@ button,
 	}
 }
 
+.item-input {
+	border: 2px solid #cd9d2b;
+	width: 57%;
+	height: 21px;
+}
+
 .date-num {
 	font-size: $font-size-smaller !important;
 }
@@ -193,11 +199,13 @@ button,
 	margin-left: 20px;
 	min-width: 120px;
 	text-align: center;
+	cursor: pointer;
 }
 
 .selection-text-vertical {
 	margin-bottom: 15px;
 	display: block;
+	cursor: pointer;
 }
 
 .selection-text-vertical:hover {
@@ -253,6 +261,7 @@ button,
 	background-color: #7c7b7a;
 	-webkit-transition: .4s;
 	transition: .4s;
+	padding-top: 5px;
 }
 
 input:checked + .slider {
@@ -271,6 +280,7 @@ input:checked + .slider:before {
 	-webkit-transform: translateX(-34px);
 	-ms-transform: translateX(-34px);
 	transform: translateX(-34px);
+	padding-top: 5px;
 }
 
 ul.non-list {
