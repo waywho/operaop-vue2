@@ -296,4 +296,11 @@ ul.non-list {
 		-webkit-padding-start: 0px;
 		-webkit-margin-before: 0px;
 	}
+
+	.slide {
+		overflow-x: auto;
+		flex-wrap: nowrap;
+		-webkit-overflow-scrolling: touch;
+	  	-ms-overflow-style: -ms-autohiding-scrollbar;
+	}
 }

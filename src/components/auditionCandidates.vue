@@ -99,7 +99,7 @@ export default {
 }
 
 
-@media screen and (max-width: 46rem) {
+@media screen and (max-width: 46) {
 
 	.auditionee-tile {
 		background-color: #e5e1df;

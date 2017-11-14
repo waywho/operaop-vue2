@@ -50,7 +50,7 @@ export default {
 <style scoped>
 #footer {
   background-color: white;
-  padding: 125px 0px 105px 100px;
+  padding: 125px 0px 50px 100px;
   grid-area: footer;
 }
 
@@ -73,6 +73,7 @@ export default {
 .footnote {
 	padding: 23px 0px;
 	border-top: 1px solid #706d6c;
+	margin-top: 150px;
 }
 
 @media screen and (max-width: 46rem) {

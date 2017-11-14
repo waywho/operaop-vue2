@@ -5,7 +5,7 @@
 				<h2>Audition Candidates</h2>
 			</div>
 			<div class="selection col-sm-2 col-xs-2">
-				<span v-on:click="component = 'company-auditionCandidates'" class="selection-text-vertical">Audition Candidates</span>
+				<span v-on:click="allAuditionees()" class="selection-text-vertical">Audition Candidates</span>
 				<span v-on:click="selectedAuditionees('company-auditionCandidates')" class="selection-text-vertical">Selected Candidates</span>
 				<span v-on:click="selectedAuditionees('company-auditionPlanner')" class="selection-text-vertical">Audition Planner</span>
 			</div>
@@ -57,6 +57,10 @@ export default {
   		this.filteredAuditionees = this.auditionees.filter((auditionee) => {
 			return auditionee.selected
 		})
+  	},
+  	allAuditionees: function() {
+  		this.component = 'company-auditionCandidates';
+  		this.filteredAuditionees = this.auditionees.slice(0, 8);
   	}
   },
   created() {
