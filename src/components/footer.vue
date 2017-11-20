@@ -3,7 +3,7 @@
   	<div class="row">
   		<div class="col-sm-2 col-xs-12">
 		  	<div class="footer-logo">
-		  		<img src='../assets/images/operaop-logo-gray.png' alt="operaop logo" />
+		  		<img src='../assets/images/logo-placeholder.png' alt="operaop logo" />
 		  	</div>
 	  	</div>
 	  	<div class="col-sm-10 col-xs-12 row between-xs">

@@ -34,7 +34,7 @@ export default {
   },
   data() { 
     return {
-      component: 'company-media'
+      component: 'company-calendar'
     }
 
   },

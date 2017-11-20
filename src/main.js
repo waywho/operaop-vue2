@@ -12,11 +12,11 @@ import VueMediaEmbed from 'vue-media-embed'
 import 'hchs-vue-charts'
 import Vuex from 'vuex'
 
+
 Vue.use(VueMediaEmbed, { store })
 Vue.use(VueCharts);
 Vue.use(vueEventCalendar, { locale: 'en'});
 Vue.use(require('vue-moment'));
-
 
 Vue.config.productionTip = false
 

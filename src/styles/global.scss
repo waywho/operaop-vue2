@@ -45,7 +45,7 @@ div {
 }
 
 .is-golden {
-	color: #cd9d2b;
+	color: $color-gold;
 }
 
 .is-white {
@@ -56,7 +56,7 @@ div {
   height: 45px;
   width: 45px;
   border-radius: 50%;
-  border: solid 3px #998c55;
+  border: solid 3px $color-gold;
   display: inline-flex;
   align-items: center;
   margin: 0 auto;
@@ -66,7 +66,7 @@ div {
   height: 119px;
   width: 119px;
   border-radius: 50%;
-  border: solid 3px #998c55;
+  border: solid 3px $color-gold;
   display: inline-flex;
   align-items: center;
   margin: 0 auto;
@@ -76,7 +76,7 @@ div {
   height: 98px;
   width: 98px;
   border-radius: 50%;
-  border: solid 3px #998c55;
+  border: solid 3px $color-gold;
   display: inline-flex;
   align-items: center;
   margin: 0 auto;
@@ -86,7 +86,7 @@ div {
   height: 35px;
   width: 35px;
   border-radius: 50%;
-  border: solid 3px #998c55;
+  border: solid 3px $color-gold;
   display: inline-flex;
   align-items: center;
   margin: 0 auto;
@@ -96,7 +96,7 @@ div {
   height: 25px;
   width: 25px;
   border-radius: 50%;
-  border: solid 3px #998c55;
+  border: solid 3px $color-gold;
   display: inline-flex;
   align-items: center;
   margin: 0 auto;
@@ -148,6 +148,13 @@ div {
   margin: 0 auto;
 }
 
+.button-fa {
+	cursor: pointer;
+}
+
+.button-fa:hover {
+	color: $color-gold;
+}
 
 ul {
 	-webkit-padding-start: 0px;
@@ -156,7 +163,7 @@ ul {
 button,
 .button {
 	color: white;
-	background-color: #cd9d2b;
+	background-color: $color-gold;
 	border-radius: 0px;
 	min-height: 30px;
 	min-width: 70px;
@@ -177,7 +184,7 @@ button,
 }
 
 .item-input {
-	border: 2px solid #cd9d2b;
+	border: 2px solid $color-gold;
 	width: 57%;
 	height: 21px;
 }
@@ -196,25 +203,35 @@ button,
 }
 
 .selection-text-horizontal {
-	margin-left: 20px;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	display: inline-block;
 	min-width: 120px;
 	text-align: center;
 	cursor: pointer;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
 }
 
 .selection-text-vertical {
 	margin-bottom: 15px;
+	margin-right: 15px;
 	display: block;
 	cursor: pointer;
+  	width: -webkit-fit-content;
+  	width: -moz-fit-content;
+  	width: fit-content;
+  	white-space: nowrap;
 }
 
 .selection-text-vertical:hover {
-	color: #998c55;
+	color: $color-gold;
 	font-weight: bold;
 }
 
 .selection-text-horizontal:hover {
-	color: #998c55;
+	color: $color-gold;
 	font-weight: bold;
 }
 
@@ -264,6 +281,10 @@ button,
 	padding-top: 5px;
 }
 
+ul.non-list {
+	list-style-type: none;
+}
+
 input:checked + .slider {
 	background-color: #f9f8f5;
 	border: 1px solid #ceae62;
@@ -283,12 +304,90 @@ input:checked + .slider:before {
 	padding-top: 5px;
 }
 
-ul.non-list {
-	list-style-type: none;
+
+// form fields with addons
+
+.input-addon {
+	display: flex;
+	flex: 1;
+	margin: 0px 10px 20px 0px;
 }
+
+.input-addon-field {
+	flex: 1;
+}
+
+
+.input-addon-field:not(:first-child) {
+  border-left: 0;
+}
+.input-addon-field:not(:last-child) {
+  border-right: 0;
+}
+
+.input-addon-item {
+  background-color: #fff;
+  color: #666666;
+  font: inherit;
+  font-weight: normal;
+  height: $input-height;
+}
+
+.input-addon-field,
+.input-addon-item {
+  border: 1px solid rgba(147, 128, 108, 0.25);
+  padding: 0.5em 0.75em;
+
+}
+.input-addon-field:first-child,
+.input-addon-item:first-child {
+  border-radius: 15px 0 0 15px;
+}
+.input-addon-field:last-child,
+.input-addon-item:last-child {
+  border-radius: 0 15px 15px 0;
+}
+
+.inline-inputs {
+	display: flex;
+	width: 100%;
+}
+
 
 .clr {
 	clear: both;
+}
+
+.xs-break {
+	display: none;
+}
+
+//font awesome icon containers style
+
+.icon-container {
+	border-radius: 50%;
+	width: 31px;
+	height: 31px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0px 6px 0px;
+	cursor: pointer;
+}
+
+.icon-container:hover, .icon-container:hover .icon, .icon:hover,
+.toolbox-tile:hover, .toolbox-tile:hover .tool-icon, .tool-icon:hover  {
+	background-color: $color-gold;
+	color: white;
+}
+
+
+.creator-panel {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100%;
 }
 
 @media screen and (max-width: 46rem) {
@@ -299,8 +398,25 @@ ul.non-list {
 
 	.slide {
 		overflow-x: auto;
-		flex-wrap: nowrap;
+		flex-wrap: nowrap !important;
 		-webkit-overflow-scrolling: touch;
 	  	-ms-overflow-style: -ms-autohiding-scrollbar;
 	}
+
+	.xs-break {
+		display: inline;
+	}
+
+	.selection-xs {
+		display: flex !important;
+		width: 100%;
+	}
+
+	.xs-visible {
+		display: inline;
+	}
+
+	.xs-hide {
+		display: none;
+	}    
 }

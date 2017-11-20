@@ -64,7 +64,8 @@ export default {
 	margin: 12px 12px;
 	flex-basis: 20%;
 	text-align: center;
-	padding: 26px 0px;
+	padding: 22px 0px 22px 0px;
+	min-width: 164px;
 }
 
 .tile-text {
@@ -81,25 +82,9 @@ export default {
 	background-color: white;
 }
 
-.icon-container {
-	border-radius: 50%;
-	width: 31px;
-	height: 31px;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	margin: 0px 6px 33px;
-	cursor: pointer;
-}
-
-.icon-container:hover, .icon-container:hover .icon, .icon:hover,
-.toolbox-tile:hover, .toolbox-tile:hover .tool-icon, .tool-icon:hover  {
-	background-color: #cd9d2b;
-	color: white;
-}
 
 
-@media screen and (max-width: 46) {
+@media screen and (max-width: 46rem) {
 
 	.auditionee-tile {
 		background-color: #e5e1df;

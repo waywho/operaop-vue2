@@ -2,7 +2,7 @@
   <div class="budget-display">
   	<div class="selection budget-accounts">
    		<span v-for="(item, key) in companyBudget.accounts"  class="selection-text-horizontal col-sm-2 col-xs small" v-on:click.prevent="getAccount(item, key)">{{item.description}}</span>
-	</div>
+	 </div>
     <div class="panels">
 	  	<div class="panel-left">
 	  		<chartjs-doughnut :height="320" :datalabe="null" :labels="budgetChartData.labels" :data="budgetChartData.data" :option="chartOption" :backgroundcolor="budgetChartData.backgroundColor" :bind="true"></chartjs-doughnut>
@@ -263,6 +263,23 @@ export default {
 	height: 100%;
 	padding: 0px 5px;
 	text-align: center;
+}
+
+@media screen and (max-width: 46rem) {
+
+  .panels {
+    flex-wrap: wrap !important;
+  }
+
+  .panel {
+    width: 100% !important;
+    margin: 0px;
+  }
+
+  .panel-left {
+    width: 100% !important;
+    margin: 0px;
+  }
 }
 
 </style>

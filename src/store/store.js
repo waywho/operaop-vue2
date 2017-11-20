@@ -4,7 +4,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
-	strict: true,
+	strict: false,
 	state: {
 		conversations: {
 			"AlyssaID": {	created: Date.now(),
@@ -278,6 +278,236 @@ export const store = new Vuex.Store({
 					img: require("../assets/images/Julie-Adams.png"),
 					type: "connector"
 					}],
+				auditions: [{
+		    		title: "General Audition",
+		    		address: "2351 Audition Street",
+		    		city: "Toronto",
+		    		applicationDeadline: 1512892800,
+		    		date: 1514188800,
+		    		starts: 1514188800,
+		    		ends: 1514217600,
+		    		type: "general",
+		    		voiceTypes: ['soprano', 'mezzo soprano', 'tenor'],
+		    		pianist: true,
+		    		oppType: "paid",
+		    		description: "Amazing opportunity for emerging singers",
+		    		invitedCandidates: [{
+						firstName: "Caitlin",
+						lastName: "McCaughey",
+						voice_type: "Soprano",
+						img: require("../assets/images/Caitlin-McCaughey.png"),
+						city: "Vancouver",
+						province: "BC",
+						selected: true
+						},
+						{ firstName: "Daevyd",
+						lastName: "Pepper",
+						voice_type: "Baritone",
+						img: require("../assets/images/Daevyd-Pepper.png"),
+						city: "Calgary",
+						province: "AB",
+						selected: false
+						},
+						{ firstName: "Brenden",
+						lastName: "Friesen",
+						voice_type: "Tenor",
+						img: require("../assets/images/Brenden-Friesen.png"),
+						city: "Montreal",
+						province: "QC",
+						selected: true
+						},
+						{ firstName: "Julie",
+						lastName: "Adams",
+						voice_type: "Mezzo Soprano",
+						img: require("../assets/images/Julie-Adams.png"),
+						city: "Winnipeg",
+						province: "MB",
+						selected: true
+						},
+						{ firstName: "Matthew",
+						lastName: "Dalen",
+						voice_type: "Bass",
+						img: require("../assets/images/Matthew-Dalen.png"),
+						city: "Toronto",
+						province: "ON",
+						selected: false
+						},
+						{ firstName: "Leanne",
+						lastName: "Kaufman",
+						voice_type: "Soprano",
+						img: require("../assets/images/Leanne-Kaufman.png"),
+						city: "Vancouver",
+						province: "BC",
+						selected: true
+						},
+						{ firstName: "Joel",
+						lastName: "Allison",
+						voice_type: "Baritone",
+						img: require("../assets/images/Joel-Allison.png"),
+						city: "Toronto",
+						province: "ON",
+						selected: false
+						}],
+					schedule: [{
+						time: 1513584000,
+						candidate: "Joel Allison"
+					}, { time: 1513584900,
+						candidate: "Leanne Kaufman"
+						}]
+					}, {
+		    		title: "Specific Audition",
+		    		address: "2351 Audition Street",
+		    		city: "Vancouver",
+		    		applicationDeadline: 1512892800,
+		    		date: 1514188800,
+		    		starts: 1514188800,
+		    		ends: 1514217600,
+		    		type: "general",
+		    		voiceTypes: ['soprano', 'mezzo soprano', 'tenor'],
+		    		pianist: true,
+		    		oppType: "paid",
+		    		description: "Amazing opportunity for emerging singers",
+		    		invitedCandidates: [{
+						firstName: "Caitlin",
+						lastName: "McCaughey",
+						voice_type: "Soprano",
+						img: require("../assets/images/Caitlin-McCaughey.png"),
+						city: "Vancouver",
+						province: "BC",
+						selected: true
+						},
+						{ firstName: "Daevyd",
+						lastName: "Pepper",
+						voice_type: "Baritone",
+						img: require("../assets/images/Daevyd-Pepper.png"),
+						city: "Calgary",
+						province: "AB",
+						selected: false
+						},
+						{ firstName: "Brenden",
+						lastName: "Friesen",
+						voice_type: "Tenor",
+						img: require("../assets/images/Brenden-Friesen.png"),
+						city: "Montreal",
+						province: "QC",
+						selected: true
+						},
+						{ firstName: "Julie",
+						lastName: "Adams",
+						voice_type: "Mezzo Soprano",
+						img: require("../assets/images/Julie-Adams.png"),
+						city: "Winnipeg",
+						province: "MB",
+						selected: true
+						},
+						{ firstName: "Matthew",
+						lastName: "Dalen",
+						voice_type: "Bass",
+						img: require("../assets/images/Matthew-Dalen.png"),
+						city: "Toronto",
+						province: "ON",
+						selected: false
+						},
+						{ firstName: "Leanne",
+						lastName: "Kaufman",
+						voice_type: "Soprano",
+						img: require("../assets/images/Leanne-Kaufman.png"),
+						city: "Vancouver",
+						province: "BC",
+						selected: true
+						},
+						{ firstName: "Joel",
+						lastName: "Allison",
+						voice_type: "Baritone",
+						img: require("../assets/images/Joel-Allison.png"),
+						city: "Toronto",
+						province: "ON",
+						selected: false
+						}],
+					schedule: [{
+						time: 1513584000,
+						candidate: "Joel Allison"
+					}, { time: 1513584900,
+						candidate: "Leanne Kaufman"
+						}]
+					}, {
+		    		title: "Specific Audition",
+		    		address: "2351 Audition Street",
+		    		city: "Vancouver",
+		    		applicationDeadline: 1512892800,
+		    		date: 1514188800,
+		    		starts: 1514188800,
+		    		ends: 1514217600,
+		    		type: "general",
+		    		voiceTypes: ['soprano', 'mezzo soprano', 'tenor'],
+		    		pianist: true,
+		    		oppType: "paid",
+		    		description: "Amazing opportunity for emerging singers",
+		    		invitedCandidates: [{
+						firstName: "Caitlin",
+						lastName: "McCaughey",
+						voice_type: "Soprano",
+						img: require("../assets/images/Caitlin-McCaughey.png"),
+						city: "Vancouver",
+						province: "BC",
+						selected: true
+						},
+						{ firstName: "Daevyd",
+						lastName: "Pepper",
+						voice_type: "Baritone",
+						img: require("../assets/images/Daevyd-Pepper.png"),
+						city: "Calgary",
+						province: "AB",
+						selected: false
+						},
+						{ firstName: "Brenden",
+						lastName: "Friesen",
+						voice_type: "Tenor",
+						img: require("../assets/images/Brenden-Friesen.png"),
+						city: "Montreal",
+						province: "QC",
+						selected: true
+						},
+						{ firstName: "Julie",
+						lastName: "Adams",
+						voice_type: "Mezzo Soprano",
+						img: require("../assets/images/Julie-Adams.png"),
+						city: "Winnipeg",
+						province: "MB",
+						selected: true
+						},
+						{ firstName: "Matthew",
+						lastName: "Dalen",
+						voice_type: "Bass",
+						img: require("../assets/images/Matthew-Dalen.png"),
+						city: "Toronto",
+						province: "ON",
+						selected: false
+						},
+						{ firstName: "Leanne",
+						lastName: "Kaufman",
+						voice_type: "Soprano",
+						img: require("../assets/images/Leanne-Kaufman.png"),
+						city: "Vancouver",
+						province: "BC",
+						selected: true
+						},
+						{ firstName: "Joel",
+						lastName: "Allison",
+						voice_type: "Baritone",
+						img: require("../assets/images/Joel-Allison.png"),
+						city: "Toronto",
+						province: "ON",
+						selected: false
+						}],
+					schedule: [{
+						time: 1513584000,
+						candidate: "Joel Allison"
+					}, { time: 1513584900,
+						candidate: "Leanne Kaufman"
+						}]
+					}
+				],
 				auditionCandidates: [{
 					firstName: "Caitlin",
 					lastName: "McCaughey",
@@ -354,12 +584,20 @@ export const store = new Vuex.Store({
 				],
 				events: [{
 					date: '2017/12/15',
+					start: '',
+					end: '',
 					title: 'Foo',
-					desc: 'longlonglong description'
+					location: '',
+					desc: 'longlonglong description',
+					type: 'production'
 				}, { 
 					date: '2017/11/15',
+					start: '',
+					end: '',
 					title: 'Wonderful Event',
-					desc: "bar"
+					location: '',
+					desc: "bar",
+					type: 'rehearsal'
 				}],
 				posts: [
 					{

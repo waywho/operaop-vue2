@@ -1,7 +1,7 @@
 <template>
   <div id="header">
     <div class="logo">
-      <img src='../assets/images/operaop-logo-trimmed.png' alt="operaop logo" />
+      <img src='../assets/images/logo-placeholder.png' alt="operaop logo" />
     </div>
 
     <ul class="header-items">

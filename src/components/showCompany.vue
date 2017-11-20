@@ -102,7 +102,7 @@ export default {
 
 circle {
   fill: white;
-  stroke: #998c55;
+  stroke: #cd9d2b;
   stroke-width: 15;
   stroke-dasharray: 841.946;
   stroke-dashoffset: 210.487;
@@ -186,10 +186,6 @@ circle {
   height: 100%;
 }
 
-.xs-break {
-	display: none;
-}
-
 .sm-hide {
 	display: none;
 }
@@ -224,24 +220,12 @@ circle {
 	.company-account {
 		width: 100%;
 	}
-	
+
 	.company-section {
 		width: 100%;
 		padding: 50px 28px 28px 28px;
 		margin: 0px 0px 24px 0px;
 	}
-
-	.xs-break {
-		display: inline;
-	}
-
-	.xs-visible {
-		display: inline;
-	}
-
-	.xs-hide {
-		display: none;
-	}    
 
 	.company-options-xs {
 	    margin: 125px;
