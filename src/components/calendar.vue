@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     companyEvents() {
-      return this.$store.state.company.events;
+      return this.$store.state.profiles.companyXYZ.events;
     }
   }
 }

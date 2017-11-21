@@ -9,14 +9,14 @@
 <script>
 import header from './components/header'
 import footer from './components/footer'
-import showCompany from './components/showCompany'
+import showProfile from './components/showProfile'
 
 export default {
   name: 'app',
   components: {
     'app-header': header,
     'app-footer': footer,
-    'show-company': showCompany
+    'show-profile': showProfile
   }
 }
 </script>

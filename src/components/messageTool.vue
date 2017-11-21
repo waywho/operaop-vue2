@@ -49,6 +49,9 @@ export default {
       sender: {}
     }
   },
+  props: {
+    profileId: String
+  },
   computed: {
   	chats() {
   		return this.$store.state.conversations;
@@ -66,7 +69,7 @@ export default {
   },
   created() {
   	// console.log(this.$store.state.conversations);
-  	this.messages = this.$store.state.messages['AlyssaID'];
+  	this.messages = this.$store.state.messages['AlyssaID']; //this.profileID
   	this.sender = this.$store.state.users['AlyssaID'];
   	// this.$store.state.conversations['AlyssaID'].isActive = !this.$store.state.conversations['AlyssaID'].isActive;
   }

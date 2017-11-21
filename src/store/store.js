@@ -209,16 +209,23 @@ export const store = new Vuex.Store({
 				}
 			}
 		},
-		company: {
+		profiles:{
+			'companyXYZ': {
+				id: 'companyXYZ',
+				type: 'company',
 				username: 'MyOpera',
 				name: "MY OPERA",
-				city: "Toronto",
-				province: "Ontario",
-				connectionStrength: 75,
-				connectionLevel: "connected allstar",
-				type: "Regional",
-				country: "Canada",
-				membership: "Indie Opera TO",
+				image: require("../assets/images/myopera-logo.png"),
+				coverImage: require("../assets/images/myoperacover.jpg"),
+				details: {
+					city: "Toronto",
+					province: "Ontario",
+					connectionStrength: 75,
+					connectionLevel: "connected allstar",
+					companyType: "Regional",
+					country: "Canada",
+					memberships: ["Indie Opera TO"],
+				},
 				notification_settings: [{	
 						title: "Notifications on",
 						desc: "Lorum ipsum deus domine allorum deus ipsum. Ave Maria lorum ipsum",
@@ -667,7 +674,169 @@ export const store = new Vuex.Store({
 					}
 
 				]
+			},
+			'artistXYZ': {
+				id: 'artistXYZ',
+				type: 'artist',
+				username: 'johnsmith',
+				name: "John Smith",
+				image: require("../assets/images/Dalen-trimmed.png"),
+				coverImage: require("../assets/images/baritoneCover.jpg"),
+				details: {
+					city: "Vancouver",
+					province: "British Columbia",
+					connectionStrength: 80,
+					connectionLevel: "connected allstar",
+					voiceType: "tenor",
+					country: "Canada",
+					memberships: ["Indie Opera TO", "Tapestry Opera", "L'Opera de Montreal"],
+				},
+				notification_settings: [{	
+						title: "Notifications on",
+						desc: "Lorum ipsum deus domine allorum deus ipsum. Ave Maria lorum ipsum",
+						isChecked: true
+					}, {
+						title: "Notifications sound",
+						desc: "Lorum ipsum deus domine allorum deus ipsum. Ave Maria lorum ipsum",
+						isChecked: true
+					}],
+				connections: [
+					{ firstName: "Camille",
+					lastName: "Rogers",
+					role: "Stage Director",
+					img: require("../assets/images/Camille-Rogers.png"),
+					type: "staff"
+					},{ firstName: "Dalen",
+					lastName: "Roberts",
+					role: "Conductor",
+					img: require("../assets/images/Dalen-trimmed.png"),
+					type: "staff"
+					}, {
+					firstName: "Alyssa",
+					lastName: "Durnie",
+					role: "Artistic Director",
+					img: require("../assets/images/Alyssa-Durnie.png"),
+					type: "staff"
+					}, { 
+					firstName: "Brittany",
+					lastName: "Cann",
+					role: "Coordinator",
+					img: require("../assets/images/Brittany-Cann.png"),
+					type: "staff"
+					}, {
+					firstName: "Caitlin",
+					lastName: "McCaughe",
+					role: "Soprano",
+					img: require("../assets/images/Caitlin-McCaughey.png"),
+					type: "connector"
+					},
+					{ firstName: "Daevyd",
+					lastName: "Pepper",
+					role: "Baritone",
+					img: require("../assets/images/Daevyd-Pepper.png"),
+					type: "connector"
+					},
+					{ firstName: "Brenden",
+					lastName: "Friesen",
+					role: "Tenor",
+					img: require("../assets/images/Brenden-Friesen.png"),
+					type: "connector"
+					},
+					{ firstName: "Julie",
+					lastName: "Adams",
+					role: "Mezzo Soprano",
+					img: require("../assets/images/Julie-Adams.png"),
+					type: "connector"
+					}
+				],
+				events: [{
+					date: '2017/12/15',
+					start: '',
+					end: '',
+					title: 'Foo',
+					location: '',
+					desc: 'longlonglong description',
+					type: 'production'
+				}, { 
+					date: '2017/11/15',
+					start: '',
+					end: '',
+					title: 'Wonderful Event',
+					location: '',
+					desc: "bar",
+					type: 'rehearsal'
+				}],
+				posts: [
+					{
+					content: 'Veniam tofu raw denim id. Waistcoat culpa consequat DIY, aliqua try-hard fugiat taxidermy succulents. Enim helvetica viral heirloom raclette. Veniam duis salvia taiyaki poke thundercats before they sold out meh hella dolore skateboard. Swag fam glossier ut.',
+					imgs: "",
+					timestamp: 	1508518037,
+					likes: 24,
+					comments: [{
+							user: 'Ed Remi',
+							user_img: require("../assets/images/Brenden-Friesen.png"),
+							commentText: 'Pounce on unsuspecting person eat prawns daintily with a claw then lick paws clean wash down prawns with a lap.',
+							timestamp: 	1508521637
+						}, {
+							user: 'Jane Smith',
+							user_img: require("../assets/images/Camille-Rogers.png"),
+							commentText: 'The short, stubby, 11.2-ounce Duvel-style bottle releases a dark, leathery-brown brew, with a tan-colored, super-tight, creamy, fluffy lacing.',
+							timestamp: 	1508521637
+						}]
+					}, {
+					content: 'Doggo ipsum floofs the neighborhood pupper bork. Stop it fren pupper heckin good boys and girls long bois the neighborhood pupper shooberino, boofers clouds heckin angery woofer very jealous pupper.',
+					imgs: [require("../assets/images/greathall.jpg"), require("../assets/images/stagetub.jpg")],
+					timestamp: 	1508518037,
+					likes: 24,
+					comments: [{
+							user: 'Ed Remi',
+							user_img: require("../assets/images/Dalen-trimmed.png"),
+							commentText: 'Cake bear claw cheesecake oat cake candy canes chocolate.',
+							timestamp: 	1508521637
+						}, {
+							user: 'Jane Smith',
+							user_img: require("../assets/images/Caitlin-McCaughey.png"),
+							commentText: 'The short, stubby, 11.2-ounce Duvel-style bottle releases a dark, leathery-brown brew, with a tan-colored, super-tight, creamy, fluffy lacing.',
+							timestamp: 	1508521637
+						}]
+					},{
+					content: 'Boof you are doing me a frighten he made many woofs stop it fren, sub woofer very jealous pupper. Boofers puggorino shoober long water shoob what a nice floof boof, dat tungg tho shoob floofs.',
+					imgs: "",
+					timestamp: 	1508518037,
+					likes: 24,
+					comments: [{
+							user: 'Edward Great',
+							user_img: require("../assets/images/Daniel-Thielman.png"),
+							commentText: 'Pounce on unsuspecting person eat prawns daintily with a claw then lick paws clean wash down prawns with a lap.',
+							timestamp: 	1508521637
+						}, {
+							user: 'Jane Smith',
+							user_img: require("../assets/images/Leanne-Kaufman.png"),
+							commentText: 'Marshmallow topping sweet jujubes bonbon cupcake I love sweet roll I love.',
+							timestamp: 	1508521637
+						}]
+					},{
+					content: 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia?',
+					imgs: [require("../assets/images/backstage.gif")],
+					timestamp: 	1508518037,
+					likes: 24,
+					comments: [{
+							user: 'Maggie Gyllenhall',
+							user_img: require("../assets/images/Georgia-Burashko.png"),
+							commentText: 'Dessert apple pie wafer jelly cupcake. Sweet donut brownie bear claw.',
+							timestamp: 	1508521637
+						}, {
+							user: 'Tom Price',
+							user_img: require("../assets/images/Julie-Adams.png"),
+							commentText: 'Gingerbread gummi bears bonbon cheesecake wafer tiramisu. ',
+							timestamp: 	1508521637
+						}]
+					}
+
+				]
+			},
 		}
+
 	},
 	getters: {
 		

@@ -30,10 +30,13 @@
 
 <script>
 export default {
-  name: '',
+  name: 'notificationSettings',
+  props: {
+    profileId: String
+  },
   computed: {
   	notificationSettings() {
-  		return this.$store.state.company.notification_settings;
+  		return this.$store.state.profiles.companyXYZ.notification_settings;
   	}
   },
   data () {

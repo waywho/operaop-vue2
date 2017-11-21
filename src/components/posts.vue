@@ -68,7 +68,8 @@ export default {
   name: 'posts',
   props: {
   	name: String,
-  	posts: Array
+  	posts: Array,
+    profileId: String
   },
   data () {
     return {

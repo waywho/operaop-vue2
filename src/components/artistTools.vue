@@ -1,16 +1,14 @@
 <template>
-  <div id="company-tools">
+  <div class="artist-tools">
     <div class="tool-panel">
       <keep-alive>
-        <component :is="component"></component>
+        <component :is="component" :profile-id="profileId"></component>
       </keep-alive>
     </div>
     <div class="toolbox">
       <div @click="component = 'company-message'" class="toolbox-tile is-lightgray"><i class="fa fa-comments-o fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Messages</div>
-      <div @click="component = 'company-budget'" class="toolbox-tile is-lightgray"><i class="fa fa-bar-chart fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Budget Planner</div>
       <div @click="component = 'company-calendar'" class="toolbox-tile is-lightgray"><i class="fa fa-calendar fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Schedule</div>
       <div @click="component = 'company-settings'" class="toolbox-tile is-lightgray"><i class="fa fa-cogs fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Settings</div>
-      <div @click="component = 'company-ticket'" class="toolbox-tile is-lightgray"><i class="fa fa-ticket fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Tickets</div>
       <div @click="component = 'company-media'" class="toolbox-tile is-lightgray"><i class="fa fa-play-circle fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Media</div>
      </div>
   </div>
@@ -20,7 +18,6 @@
 import calendar from './calendar';
 import settings from './settings';
 import messageTool from './messageTool';
-import budgetTool from './budgetTool';
 import mediaTool from './mediaTool';
 
 export default {
@@ -29,8 +26,10 @@ export default {
     'company-calendar': calendar,
     'company-settings': settings,
     'company-message': messageTool,
-    'company-budget': budgetTool,
     'company-media': mediaTool
+  },
+  props: {
+    profileId: String
   },
   data() { 
     return {
@@ -45,17 +44,18 @@ export default {
 </script>
 
 <style scoped>
-#company-tools {
+.artist-tools {
   height: 100%;
   padding: 0px;
   display: flex;
   align-items: stretch;
+  margin: 0px 0px 24px 0px;
 }
 
 .tool-panel {
   background-color: white;
   padding: 0px 0px 0px 20px;
-  width: 63%;
+  flex-basis: 63%;
   display: inline-block;
   min-height: 100%;
   float: left;
@@ -63,7 +63,7 @@ export default {
 
 .toolbox {
   display: inline-grid;
-  width: 35%;
+  flex-basis: 35%;
   background: #f9f9f9;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto auto;
@@ -93,7 +93,7 @@ export default {
 
 
 @media screen and (max-width: 46rem) {
-  #company-tools {
+  .artist-tools {
     flex-direction: column;
   }
 

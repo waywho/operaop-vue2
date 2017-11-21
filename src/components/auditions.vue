@@ -36,6 +36,9 @@ export default {
     'auditionCreator-stepOne': auditionCreatorStepOne,
     'auditionCreator-stepTwo': auditionCreatorStepTwo
   },
+  props: {
+    profileId: String
+  },
   data () {
     return {
     	component: 'company-auditionPlanner',
@@ -87,8 +90,8 @@ export default {
     }
   },
   created() {
-  		this.auditionees = this.$store.state.company.auditionCandidates.slice(0, 8);
-      this.auditions = this.$store.state.company.auditions;
+  		this.auditionees = this.$store.state.profiles.companyXYZ.auditionCandidates.slice(0, 8);
+      this.auditions = this.$store.state.profiles.companyXYZ.auditions;
   		// this.filteredAuditionees = this.auditionees.slice(0, 8);
 		// console.log(this.auditionees);
   }
