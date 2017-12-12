@@ -1,10 +1,10 @@
 export default{
 	methods: {
-	  	takeStep(step) {
-	  		this.$emit('takeStep', { theStep: step, newAudition: this.newAudition });
+	  	takeStep(step, object) {
+	  		this.$emit('takeStep', { theStep: step, newData: object});
 	  	},
-	  	saveAudition(step) {
-	  		this.$emit('saveAudition', { theStep: step, newAudition: this.newAudition });
+	  	saveData(step, object) {
+	  		this.$emit('saveData', { theStep: step, newData: object});
 	  	}
 	}
 }

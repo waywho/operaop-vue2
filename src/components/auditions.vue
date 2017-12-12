@@ -17,7 +17,7 @@
 				<span v-on:click="setFilter(false, 'bass')" class="selection-text-horizontal">Bass</span>
 		</div>
 		<keep-alive>
-			<component :is="component" :audition="newAudition" :auditions="auditions" :auditionees="filteredAuditionees" v-on:takeStep="updateAudition($event)" v-on:saveAudition="saveAudition($event)"></component>
+			<component :is="component" :audition="newAudition" :auditions="auditions" :auditionees="filteredAuditionees" v-on:takeStep="updateAudition($event)" v-on:saveData="saveAudition($event)"></component>
 		</keep-alive>
 	</div>
 </template>
@@ -46,7 +46,12 @@ export default {
       filterSelected: false,
       auditionees: [],
       auditions: [],
-      newAudition: {}
+      newAudition: {},
+      currentStep: 0,
+      auditionCreatorSteps: [
+        'auditionCreator-stepOne',
+        'auditionCreator-stepTwo'
+      ]
     }
   },
   computed: {
@@ -81,11 +86,11 @@ export default {
   	},
     updateAudition: function(object) {
       this.component = object.theStep
-      this.newAudition = Object.assign({}, this.newAudition, object.newAudition)
+      this.newAudition = Object.assign({}, this.newAudition, object.newData)
     },
     saveAudition: function(object) {
       this.component = object.theStep
-      this.newAudition = Object.assign({}, this.newAudition, object.newAudition)
+      this.newAudition = Object.assign({}, this.newAudition, object.newData)
       this.auditions.push(this.newAudition)
     }
   },

@@ -9,7 +9,7 @@
 			<div class="row slide">
 				<div v-for="connection in slicedConnections" class="connection-tile col-sm col-xs">
 					<div class="avatar-medium connection-avatar">
-						<img v-bind:src="connection.img" />
+						<img v-bind:src="connection.img" :alt="connection.firstName + connection.lastName + ' photo'" />
 					</div>
 					<div class="name small strong">{{ connection.firstName}} {{ connection.lastName }}</div>
 					<div class="role smaller">{{ connection.role }}</div>

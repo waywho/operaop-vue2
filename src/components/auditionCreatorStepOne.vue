@@ -1,9 +1,6 @@
 <template>
   <div class="row between-sm between-xs">
-  	<div v-on:click="takeStep('company-auditionPlanner')" class="col-sm-12 col-xs-12 last-step">
-		<span class="icon-container">
-			<i class="fa fa-chevron-left is-golden icon" aria-hidden="true"></i>
-		</span>
+  	<div class="col-sm-12 col-xs-12">
 		<span class="strong step-label">Step 1 of 2</span>
 	</div>  	
 
@@ -47,11 +44,11 @@
 	  	</div>
 	</div>
   	<div class="col-sm-3 col-xs-12" >
-  		<div v-on:click="takeStep('auditionCreator-stepTwo')" class="next-step">
+  		<div class="next-step">
+  			<div>
 			<span class="strong">Plan Audition</span>
 			<div class="smaller">Continue Audition Setup</div>
-			<div class="icon-container">
-				<i class="fa fa-chevron-right is-golden icon" aria-hidden="true"></i>
+			<next-last-step v-on:click.native="takeStep('auditionCreator-stepTwo', newAudition)" :step="'next'"></next-last-step>
 			</div>
 		</div>
   	</div>		
@@ -59,12 +56,13 @@
 </template>
 
 <script>
+import nextLastStep from './nextLastStep'
 import stepMixin from '../mixins/stepMixin';
 
 export default {
   name: 'auditionCreatorStepOne',
   components: {
-
+  	'next-last-step': nextLastStep
   }, 
   props: {
 
@@ -84,21 +82,18 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .next-step {
-	cursor: pointer;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 	height: 100%;
+	text-align: center;
 }
 
 .step-label {
 	display: inline-flex;
 }
 
-.last-step {
-	cursor: pointer;
-}
 
 .next-step:hover > .icon-container, .next-step:hover .icon,
 	.last-step:hover > .icon-container, .last-step:hover .icon {

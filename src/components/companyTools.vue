@@ -58,8 +58,8 @@ export default {
 
 .tool-panel {
   background-color: white;
-  padding: 0px 0px 0px 20px;
-  width: 63%;
+  padding: 0px 0px 0px 100px;
+  flex-basis: 69%;
   display: inline-block;
   min-height: 100%;
   float: left;
@@ -67,7 +67,7 @@ export default {
 
 .toolbox {
   display: inline-grid;
-  width: 35%;
+  flex-basis: 30%;
   background: #f9f9f9;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto auto;
@@ -102,7 +102,7 @@ export default {
   }
 
   .tool-panel {
-    padding: 50px 20px;
+    padding: 0px 0px 0px 0px;
     width: 100%;
     order: 2;
   }

@@ -6,10 +6,12 @@
       </keep-alive>
     </div>
     <div class="toolbox">
-      <div @click="component = 'company-message'" class="toolbox-tile is-lightgray"><i class="fa fa-comments-o fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Messages</div>
-      <div @click="component = 'company-calendar'" class="toolbox-tile is-lightgray"><i class="fa fa-calendar fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Schedule</div>
-      <div @click="component = 'company-settings'" class="toolbox-tile is-lightgray"><i class="fa fa-cogs fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Settings</div>
-      <div @click="component = 'company-media'" class="toolbox-tile is-lightgray"><i class="fa fa-play-circle fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Media</div>
+      <div @click="component = 'artist-message'" class="toolbox-tile is-lightgray"><i class="fa fa-comments-o fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Messages</div>
+      <div @click="component = 'artist-calendar'" class="toolbox-tile is-lightgray"><i class="fa fa-calendar fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Schedule</div>
+      <div @click="component = 'artist-settings'" class="toolbox-tile is-lightgray"><i class="fa fa-cogs fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Settings</div>
+      <div @click="component = 'artist-media'" class="toolbox-tile is-lightgray"><i class="fa fa-play-circle fa-3x is-lightgray tool-icon" aria-hidden="true"></i>Media</div>
+      <div @click="component = 'artist-cv'" class="toolbox-tile is-lightgray"><i class="fa fa-file-text-o fa-3x is-lightgray tool-icon" aria-hidden="true"></i>CV/Resume</div>
+      <div @click="component = 'artist-settings'" class="toolbox-tile is-lightgray"></div>
      </div>
   </div>
 </template>
@@ -19,14 +21,16 @@ import calendar from './calendar';
 import settings from './settings';
 import messageTool from './messageTool';
 import mediaTool from './mediaTool';
+import cvTool from './cvTool';
 
 export default {
   name: 'tools',
   components: {
-    'company-calendar': calendar,
-    'company-settings': settings,
-    'company-message': messageTool,
-    'company-media': mediaTool
+    'artist-calendar': calendar,
+    'artist-settings': settings,
+    'artist-message': messageTool,
+    'artist-media': mediaTool,
+    'artist-cv': cvTool
   },
   props: {
     profileId: String
@@ -54,7 +58,7 @@ export default {
 
 .tool-panel {
   background-color: white;
-  padding: 0px 0px 0px 20px;
+  padding: 0px 0px 0px 100px;
   flex-basis: 63%;
   display: inline-block;
   min-height: 100%;
@@ -98,7 +102,7 @@ export default {
   }
 
   .tool-panel {
-    padding: 50px 20px;
+    padding: 0px 0px;
     width: 100%;
     order: 2;
   }

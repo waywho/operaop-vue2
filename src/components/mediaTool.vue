@@ -1,23 +1,23 @@
 <template>
-  <div class="media row">
-  	<h2 class="col-sm-12">Media</h2>
-  	<div class="selection col-sm-3">
+  <div class="media">
+  	<div class="selection selection-panel">
+      <h2>Media</h2>
   		<h4>Player</h4>
   		<div v-on:click="mediaHost = 'Youtube'" class="selection-text-vertical media-selection"><div class="media-icon"><i class="fa fa-youtube" aria-hdden="true"></i></div><span class="small">Youtube</span></div>
   		<div v-on:click="mediaHost = 'Vimeo'" class="selection-text-vertical media-selection"><div class="media-icon"><i class="fa fa-vimeo-square" aria-hdden="true"></i></div><span class="small">Vimeo</span></div>
   		<div v-on:click="mediaHost = 'SoundCloud'" class="selection-text-vertical media-selection"><div class="media-icon"><i class="fa fa-soundcloud" aria-hdden="true"></i></div><span class="small">SoundCloud</span></div>
   	</div>
-  	<media-pannel class="col-sm-9" :medias="filteredMedia" :currentMediaType="mediaType" :media-host="mediaHost" v-on:sendMedia="updateMedia($event)"></media-pannel>
+  	<media-panel class="media-panel" :medias="filteredMedia" :currentMediaType="mediaType" :media-host="mediaHost" v-on:sendMedia="updateMedia($event)"></media-panel>
   </div>
 </template>
 
 <script>
-import mediaPannel from './mediaPannel';
+import mediaPanel from './mediaPanel';
 
 export default {
   name: 'mediaTool',
   components: {
-  	'media-pannel': mediaPannel
+  	'media-panel': mediaPanel
   },
   data () {
     return {
@@ -128,7 +128,27 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
+@import '../styles/style-variables.scss';
+
+.media {
+  background-color: $color-body;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.selection-panel {
+  background: #fff;
+  margin-right: 14px;
+  flex-basis: 20%;
+  padding: 30px 30px;
+}
+
+.media-panel {
+  background-color: #fff;
+  flex-basis: 76%;
+  padding: 0px 16px 16px 16px;
+}
 
 .media-icon {
 	margin-right: 20px;
@@ -151,4 +171,21 @@ export default {
 	height: 35px;
 	margin-right: 9px;
  }
+
+@media screen and (max-width: 46rem) {
+  .media {
+  }
+
+  .selection-panel {
+    flex-basis: 100%;
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 31px;
+  }
+
+  .media-panel {
+    flex-basis: 100%;
+    width: 100%;
+  }
+}
 </style>

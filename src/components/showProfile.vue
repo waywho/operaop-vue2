@@ -2,20 +2,27 @@
 	<div class="profile-account">
 		<div class="profile-banner">
 			<div class="profile-banner-assets">
+
 				<div class="profile-cover" :style="{'background-image': 'url('+ profile.coverImage +')'}">
+					<div class="cover-edit">
+				 		<i class="fa fa-camera" aria-hidden="true"></i>Update Cover Photo
+					</div>
 				</div>
 
-				<div class="profile-avatar-wrap">
-					<div class="profile-avatar">
+				<div class="profile-avatar-wrap" >
+					<div class="profile-avatar" :style="{'background-image': 'url('+ profile.image +')'}">
+	
 						<svg height="100%" width="100%">
-							<circle cx="142" cy="142" r="134" transform="rotate(268 142 142)" />
-							<image y="0" x="0" width="100%" height="100%" :xlink:href="profile.image" />
+							<circle cx="158px" cy="158px" r="150px" transform="rotate(268 158 158)" />
 						</svg>
 						
+
+						<div class="avatar-edit"><i class="fa fa-camera fa-3x" aria-hidden="true"></i><span>Update Photo</span></div>
 					</div>
-					<i class="fa fa-ellipsis-h fa-2x is-darkgray profile-options"></i>
-				</div>
-				<div class="xs-visible sm-hide profile-options-xs"><i class="fa fa-ellipsis-h fa-3x is-darkgray opions-icon-xs"></i></div>
+					
+<!-- 					<i class="fa fa-ellipsis-h fa-2x is-darkgray profile-options"></i> -->
+				</div><!-- 
+				<div class="xs-visible sm-hide profile-options-xs"><i class="fa fa-ellipsis-h fa-3x is-darkgray opions-icon-xs"></i></div> -->
 			</div>
 			<div class="profile-name"><h1>{{ profile.name }}</h1></div>
 
@@ -79,14 +86,14 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/style-variables.scss';
 
-.profile-account {
-	grid-area: main;
-}
+// .profile-account {
+// 	grid-area: main;
+// }
 
 circle {
-  fill: white;
-  stroke: #cd9d2b;
-  stroke-width: 15;
+  fill: transparent;
+  stroke: $color-gold;
+  stroke-width: 16;
   stroke-dasharray: 841.946;
   stroke-dashoffset: 210.487;
   animation: dash 2s linear reverse;
@@ -120,7 +127,6 @@ circle {
 
 .profile-cover {
 	width: 100%;
-	
 	background-color: white;
 	height: 434px;
 	overflow: hidden;    
@@ -129,30 +135,85 @@ circle {
     background-size: cover;
 }
 
+.cover-edit {
+	color: #fff;
+	border: 2px solid #fff;
+	border-radius: 15px;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 10;
+	position: absolute;
+	top: 39px;
+	left: 100px;
+	padding: 6px 14px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	visibility: hidden;
+}
+
+.cover-edit .fa {
+	margin-right: 21px;
+}
+
+.profile-cover:hover .cover-edit {
+	visibility: visible;
+}
+
 .profile-avatar-wrap {
-	height: 283px;
+	height: 316px;
 	position: absolute;
 	top: 45%;
+	left: 0;
 	width: 100%;
+	display: flex;
+	align-items: center;
 }
 
 .profile-avatar {
 	border-radius: 50%;
-	height: 285px;
-	width: 285px;
-	margin: 0 5px 0px 50%;
-	transform: translateX(-50%);
-	background: transparent;
-	display: inline-flex;
+	height: 316px;
+	width: 316px;
+	margin: 0 auto;
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: 95%;
+	cursor: pointer;
+	position: relative;
+}
+
+.profile-avatar svg {
+	position: absolute;
+	z-index: 16;
+	top: 0;
+	left: 0;
+}
+
+.avatar-edit {
+	border-radius: 50%;
+	height: 300px;
+	width: 300px;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	z-index: 10;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
 	align-items: center;
+	justify-content: center;
+	visibility: hidden;
+	cursor: pointer;
+}
+
+.profile-avatar:hover .avatar-edit {
+	visibility: visible;
 }
 
 .profile-options {
 	display: inline-block;
 	transform: translateX(-130px);
 }
-
-
 
 .profile-banner-text {
 	text-align: center;
@@ -167,10 +228,6 @@ circle {
 
 .profile-section h2 {
 	margin-top: 0px;
-}
-
-.sm-hide {
-	display: none;
 }
 
 /*for phone-only*/

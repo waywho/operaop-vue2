@@ -12,6 +12,7 @@
 // Links
 a {
 	color: $color-link;
+	text-decoration: none;
 }
 a:hover {
 	color: $color-link-hover;
@@ -276,6 +277,10 @@ ul.unstyled {
 }
 .strong {
     font-weight: 700 !important;
+}
+
+.extra-strong {
+	font-weight: 800 !important;
 }
 
 .medium {

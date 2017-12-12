@@ -7,7 +7,7 @@
 		  		
 		  		<div v-for="(chat, key) in chats" :class="{ sender, isActive: chat.isActive }" v-on:click="getMessages(key)">
 		  			<div class="avatar-box">
-			  			<div class="avatar-border">
+			  			<div class="avatar">
 					      	<img src="../assets/images/myopera-logo.png" />
 					    </div>
 					</div>
@@ -19,8 +19,8 @@
 	  		</div>
 	  	</div>
 	  	<div class="message-window">
-	  		<div class="message-title">
-				<span class="small strong">{{ sender.firstName }} {{ sender.lastName}}</span><br />
+	  		<div class="message-header">
+				<span class="small strong">{{ sender.name}}</span><br />
 				<span class="smaller">{{ sender.role }}</span>
 			</div>
 		  	<div class="messages">
@@ -85,26 +85,13 @@ export default {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-}
-
-.message-window {
-	border: 1px solid #dddcdc;
-	height: 461px;
-	flex-grow: 2;
-}
-
-.message-title {
-	padding: 25px 25px 0px;
-}
-
-.messages {
-	height: 63%;
-	overflow-y: scroll;
-	padding: 25px 25px;
+	background-color: $color-body;
 }
 
 .message-sidepanel {
-	flex-grow: 1;
+	flex-basis: 58%;
+	background-color: #fff;
+	margin-right: 15px;
 }
 
 .senders-window {
@@ -113,7 +100,7 @@ export default {
 }
 
 .sender {
-	border: 1px solid #dddcdc;
+	// border: 1px solid #dddcdc;
 	height: 75px;
 	width: 100%;
 	display: flex;
@@ -121,6 +108,22 @@ export default {
 	align-items: center;
 }
 
+.message-window {
+	// border: 1px solid #dddcdc;
+	background-color: #fff;
+	height: 461px;
+	flex-basis: 42%;
+}
+
+.message-header {
+	padding: 25px 25px 0px;
+}
+
+.messages {
+	height: 63%;
+	overflow-y: scroll;
+	padding: 25px 25px;
+}
 
 #sender-search {
 	max-width: 80%;
@@ -134,7 +137,7 @@ export default {
 }
 
 .message-input-container {
-	border-top: 1px solid #dddcdc;
+	// border-top: 1px solid #dddcdc;
 	min-height: 25%;
 	display: flex;
 	justify-content: center;
@@ -168,5 +171,15 @@ export default {
 	background: #ecddba;
 	color: white;
 	font-weight: bold;
+}
+
+@media screen and (max-width: 46rem) {
+	.message-sidepanel {
+		flex-basis: 100%;
+	}
+
+	.message-window {
+		flex-basis: 100%;
+	}
 }
 </style>

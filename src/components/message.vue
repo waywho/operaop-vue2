@@ -25,7 +25,7 @@ export default {
   },
   computed: {
   	getPosition() {
-  		if (this.message.sender === this.$store.state.company.username) {
+  		if (this.message.sender === this.$store.state.profiles['companyXYZ'].username) {
   			return 'my message'
   		} else {
   			return 'message'
